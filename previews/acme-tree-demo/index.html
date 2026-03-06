@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Acme Tree Service — Website Preview by TradesitePro</title>
+  <meta name="robots" content="noindex, nofollow"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #0e0e0e; --orange: #e8500a; --paper: #f5f2ec; --muted: #7a7265; --border: #d6d0c4; }
+    body { font-family: 'Instrument Sans', sans-serif; background: #1a1a1a; }
+    .preview-banner { background: var(--orange); color: #fff; text-align: center; padding: 0.6rem 1rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; position: sticky; top: 0; z-index: 999; }
+    .preview-banner a { color: #fff; text-decoration: underline; margin-left: 1rem; }
+    .browser-outer { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+    .browser-chrome { background: #2a2a2a; border-radius: 10px 10px 0 0; padding: 0.8rem 1rem; display: flex; align-items: center; gap: 0.5rem; }
+    .dot { width: 11px; height: 11px; border-radius: 50%; }
+    .dot-r { background: #ff5f57; } .dot-y { background: #febc2e; } .dot-g { background: #28c840; }
+    .url-bar { flex: 1; background: #1e1e1e; border-radius: 4px; padding: 0.35rem 0.8rem; font-size: 0.7rem; color: #888; font-family: monospace; margin-left: 0.5rem; }
+    .browser-body { border-radius: 0 0 10px 10px; overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.6); }
+    .site-nav { background: var(--ink); padding: 0.9rem 2rem; display: flex; align-items: center; justify-content: space-between; }
+    .site-nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; color: #fff; letter-spacing: 0.05em; }
+    .site-nav-phone { background: var(--orange); color: #fff; padding: 0.4rem 1rem; border-radius: 4px; font-size: 0.75rem; font-weight: 700; }
+    .site-hero { background: linear-gradient(135deg, #111 0%, #222 60%, #1a1a1a 100%); padding: 3.5rem 2rem; text-align: center; position: relative; overflow: hidden; }
+    .site-hero::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, transparent, transparent 30px, rgba(232,80,10,0.05) 30px, rgba(232,80,10,0.05) 31px); }
+    .site-hero-inner { position: relative; z-index: 1; }
+    .site-hero-badge { display: inline-block; background: rgba(232,80,10,0.15); border: 1px solid rgba(232,80,10,0.4); color: var(--orange); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 20px; margin-bottom: 1rem; }
+    .site-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 5vw, 3.5rem); color: #fff; letter-spacing: 0.03em; line-height: 1; margin-bottom: 0.6rem; }
+    .site-hero h1 em { color: var(--orange); font-style: normal; }
+    .site-hero-sub { font-size: 0.9rem; color: #999; margin-bottom: 1.5rem; line-height: 1.6; }
+    .site-hero-btns { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; }
+    .hero-btn-primary { background: var(--orange); color: #fff; padding: 0.7rem 1.5rem; border-radius: 4px; font-weight: 700; font-size: 0.85rem; text-decoration: none; }
+    .hero-btn-secondary { background: transparent; color: #fff; border: 1.5px solid #444; padding: 0.7rem 1.5rem; border-radius: 4px; font-weight: 600; font-size: 0.85rem; text-decoration: none; }
+    .site-trust { background: var(--orange); padding: 0.7rem 2rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+    .trust-item { font-size: 0.72rem; font-weight: 700; color: #fff; letter-spacing: 0.05em; }
+    .site-services { background: var(--paper); padding: 2.5rem 2rem; }
+    .services-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; text-align: center; margin-bottom: 1.5rem; color: var(--ink); }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.8rem; }
+    .service-card { background: #fff; border: 1px solid var(--border); border-radius: 6px; padding: 1.2rem 0.8rem; text-align: center; }
+    .service-icon { font-size: 1.8rem; margin-bottom: 0.4rem; }
+    .service-name { font-size: 0.78rem; font-weight: 600; color: var(--ink); }
+    .site-about { background: #fff; padding: 2.5rem 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
+    .about-text h2 { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; margin-bottom: 0.8rem; color: var(--ink); }
+    .about-text p { font-size: 0.85rem; line-height: 1.7; color: var(--muted); }
+    .about-stats { display: flex; flex-direction: column; gap: 0.8rem; }
+    .about-stat { background: var(--paper); border-left: 3px solid var(--orange); padding: 0.8rem 1rem; border-radius: 0 4px 4px 0; }
+    .about-stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--orange); line-height: 1; }
+    .about-stat-label { font-size: 0.72rem; color: var(--muted); }
+    .site-cta { background: var(--ink); padding: 2.5rem 2rem; text-align: center; }
+    .site-cta h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: #fff; margin-bottom: 0.5rem; }
+    .site-cta p { color: #666; font-size: 0.85rem; margin-bottom: 1.2rem; }
+    .cta-phone { display: inline-block; background: var(--orange); color: #fff; padding: 0.9rem 2rem; border-radius: 4px; font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.05em; text-decoration: none; }
+    .site-footer { background: #080808; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+    .footer-biz { font-size: 0.72rem; color: #444; }
+    .footer-credit { font-size: 0.65rem; color: #333; }
+    .footer-credit span { color: var(--orange); }
+    .bottom-cta { max-width: 900px; margin: 1.5rem auto 3rem; padding: 1.5rem 2rem; background: #fff; border-radius: 8px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .bottom-cta h3 { font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.2rem; }
+    .bottom-cta p { font-size: 0.8rem; color: var(--muted); }
+    .bottom-cta-btn { background: var(--orange); color: #fff; padding: 0.75rem 1.5rem; border-radius: 4px; font-weight: 700; font-size: 0.85rem; text-decoration: none; white-space: nowrap; }
+    @media (max-width: 600px) { .site-about { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<div class="preview-banner">🎨 This is a FREE website preview made for Acme Tree Service by TradesitePro <a href="mailto:hello@tradesitepro.com">Claim your site →</a></div>
+<div class="browser-outer">
+  <div class="browser-chrome">
+    <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+    <div class="url-bar">www.acmetreeservice.com</div>
+  </div>
+  <div class="browser-body">
+    <div class="site-nav"><div class="site-nav-logo">Acme Tree Service</div><div class="site-nav-phone">📞 (407) 555-0192</div></div>
+    <div class="site-hero">
+      <div class="site-hero-inner">
+        <div class="site-hero-badge">Sanford, FL · Licensed & Insured</div>
+        <h1>Seminole County's<br><em>Tree Experts</em></h1>
+        <p class="site-hero-sub">Professional tree trimming, removal & stump grinding. Serving Sanford, Lake Mary, Oviedo & surrounding areas.</p>
+        <div class="site-hero-btns">
+          <a href="#" class="hero-btn-primary">📞 Call (407) 555-0192</a>
+          <a href="#" class="hero-btn-secondary">Get Free Estimate</a>
+        </div>
+      </div>
+    </div>
+    <div class="site-trust">
+      <div class="trust-item">✓ Free Estimates</div>
+      <div class="trust-item">✓ Licensed & Insured</div>
+      <div class="trust-item">✓ Serving Seminole County</div>
+      <div class="trust-item">✓ 12+ Years Experience</div>
+    </div>
+    <div class="site-services">
+      <div class="services-title">Our Services</div>
+      <div class="services-grid">
+        <div class="service-card"><div class="service-icon">🌳</div><div class="service-name">Tree Removal</div></div>
+        <div class="service-card"><div class="service-icon">✂️</div><div class="service-name">Tree Trimming</div></div>
+        <div class="service-card"><div class="service-icon">🪵</div><div class="service-name">Stump Grinding</div></div>
+        <div class="service-card"><div class="service-icon">🚨</div><div class="service-name">Emergency Service</div></div>
+      </div>
+    </div>
+    <div class="site-about">
+      <div class="about-text"><h2>Why Acme Tree Service?</h2><p>Family-owned and operated since 2013, we have built our reputation one yard at a time across Seminole County. Every job is done safely, cleanly, and on time — or we make it right.</p></div>
+      <div class="about-stats">
+        <div class="about-stat"><div class="about-stat-num">12+</div><div class="about-stat-label">Years Serving Seminole County</div></div>
+        <div class="about-stat"><div class="about-stat-num">800+</div><div class="about-stat-label">Jobs Completed</div></div>
+        <div class="about-stat"><div class="about-stat-num">5★</div><div class="about-stat-label">Google Reviews</div></div>
+      </div>
+    </div>
+    <div class="site-cta"><h2>Ready to Get Started?</h2><p>Call or text anytime — we respond fast.</p><a href="tel:4075550192" class="cta-phone">📞 (407) 555-0192</a></div>
+    <div class="site-footer"><div class="footer-biz">© 2025 Acme Tree Service · Sanford, FL · (407) 555-0192</div><div class="footer-credit">Preview by <span>TradesitePro</span></div></div>
+  </div>
+</div>
+<div class="bottom-cta">
+  <div><h3>Like what you see? This site can be live within 5 days.</h3><p>Flat one-time fee · You own it forever · No monthly contracts</p></div>
+  <a href="mailto:hello@tradesitepro.com" class="bottom-cta-btn">Claim This Site →</a>
+</div>
+</body>
+</html>

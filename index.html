@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tradesite Pro | Websites for Home Service Businesses in Seminole County, FL</title>
+  <meta name="description" content="Professional websites built for contractors, plumbers, roofers, electricians and home service businesses in Seminole County, Florida. One-time flat fee. No surprises." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #0e0e0e; --paper: #f5f2ec; --orange: #e8500a;
+      --orange-dark: #c24008; --cream: #faf8f3;
+      --muted: #7a7265; --border: #d6d0c4; --card-bg: #ffffff;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Instrument Sans', sans-serif; background: var(--paper); color: var(--ink); overflow-x: hidden; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 2.5rem; background: rgba(245,242,236,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.04em; color: var(--ink); text-decoration: none; }
+    .nav-logo span { color: var(--orange); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--orange); }
+    .nav-cta { background: var(--orange); color: #fff; padding: 0.55rem 1.3rem; border-radius: 4px; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--orange-dark); }
+    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 80px; overflow: hidden; }
+    .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 5rem 3rem 5rem 5rem; position: relative; }
+    .hero-eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--orange); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.6rem; }
+    .hero-eyebrow::before { content: ''; display: block; width: 28px; height: 2px; background: var(--orange); }
+    .hero-headline { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3.5rem, 6vw, 5.5rem); line-height: 0.95; letter-spacing: 0.02em; color: var(--ink); margin-bottom: 1.8rem; }
+    .hero-headline em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--orange); }
+    .hero-sub { font-size: 1.05rem; line-height: 1.7; color: #3a3530; max-width: 440px; margin-bottom: 2.5rem; }
+    .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary { background: var(--orange); color: #fff; padding: 0.85rem 2rem; border-radius: 4px; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.04em; text-decoration: none; transition: background 0.2s, transform 0.15s; display: inline-block; }
+    .btn-primary:hover { background: var(--orange-dark); transform: translateY(-1px); }
+    .btn-secondary { background: transparent; color: var(--ink); padding: 0.85rem 2rem; border-radius: 4px; border: 1.5px solid var(--ink); font-weight: 600; font-size: 0.9rem; letter-spacing: 0.04em; text-decoration: none; transition: all 0.2s; display: inline-block; }
+    .btn-secondary:hover { background: var(--ink); color: var(--paper); }
+    .hero-stats { display: flex; gap: 2.5rem; margin-top: 3.5rem; padding-top: 2.5rem; border-top: 1px solid var(--border); }
+    .stat-item { display: flex; flex-direction: column; gap: 0.2rem; }
+    .stat-number { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; letter-spacing: 0.03em; color: var(--ink); }
+    .stat-label { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; }
+    .hero-right { background: var(--ink); display: flex; align-items: center; justify-content: center; padding: 3rem; position: relative; overflow: hidden; }
+    .hero-right::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(232,80,10,0.04) 40px, rgba(232,80,10,0.04) 41px); }
+    .mockup-wrap { width: 100%; max-width: 420px; position: relative; z-index: 1; }
+    .browser-chrome { background: #1e1e1e; border-radius: 10px 10px 0 0; padding: 0.7rem 1rem; display: flex; align-items: center; gap: 0.5rem; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot-r { background: #ff5f57; } .dot-y { background: #febc2e; } .dot-g { background: #28c840; }
+    .url-bar { flex: 1; background: #2a2a2a; border-radius: 4px; padding: 0.3rem 0.7rem; font-size: 0.7rem; color: #888; margin-left: 0.5rem; font-family: monospace; }
+    .mockup-body { background: #fff; border-radius: 0 0 10px 10px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+    .mock-hero-bar { background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); padding: 1.5rem; text-align: center; }
+    .mock-biz-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: #fff; letter-spacing: 0.08em; }
+    .mock-tagline { font-size: 0.6rem; color: #aaa; margin-top: 0.2rem; }
+    .mock-orange-bar { background: var(--orange); padding: 0.5rem; text-align: center; font-size: 0.65rem; color: #fff; font-weight: 600; letter-spacing: 0.05em; }
+    .mock-content { padding: 1rem; }
+    .mock-row { display: flex; gap: 0.5rem; margin-bottom: 0.5rem; }
+    .mock-card { flex: 1; background: #f5f5f5; border-radius: 4px; padding: 0.6rem; font-size: 0.55rem; color: #555; text-align: center; }
+    .mock-card-icon { font-size: 1.1rem; margin-bottom: 0.2rem; }
+    .mock-card-label { font-weight: 600; color: #222; font-size: 0.6rem; }
+    .mock-cta-btn { display: block; width: 100%; background: var(--orange); color: #fff; text-align: center; padding: 0.6rem; border-radius: 4px; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.04em; margin-top: 0.5rem; }
+    .mock-photos { display: flex; gap: 0.4rem; margin-top: 0.5rem; }
+    .mock-photo { flex: 1; height: 45px; border-radius: 3px; background: #e0ddd8; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+    .trust-bar { background: var(--ink); padding: 1.2rem 5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .trust-bar-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #666; white-space: nowrap; }
+    .trust-items { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: #aaa; }
+    .trust-item span { font-size: 1rem; }
+    section { padding: 5rem 5rem; }
+    .section-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.6rem; }
+    .section-eyebrow::before { content: ''; display: block; width: 20px; height: 2px; background: var(--orange); }
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1; letter-spacing: 0.03em; margin-bottom: 1.2rem; }
+    .section-sub { font-size: 1rem; line-height: 1.7; color: var(--muted); max-width: 540px; }
+    .trades-section { background: var(--cream); }
+    .trades-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; margin-top: 3rem; }
+    .trade-card { background: #fff; border: 1px solid var(--border); border-radius: 6px; padding: 1.5rem 1rem; text-align: center; transition: all 0.2s; }
+    .trade-card:hover { border-color: var(--orange); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(232,80,10,0.12); }
+    .trade-icon { font-size: 2rem; margin-bottom: 0.6rem; }
+    .trade-name { font-weight: 600; font-size: 0.85rem; color: var(--ink); }
+    .steps-section { background: var(--ink); }
+    .steps-section .section-title { color: #fff; }
+    .steps-section .section-eyebrow { color: var(--orange); }
+    .steps-section .section-eyebrow::before { background: var(--orange); }
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-top: 3.5rem; }
+    .step-number { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; color: rgba(232,80,10,0.2); line-height: 1; margin-bottom: 0.5rem; }
+    .step-title { font-size: 1rem; font-weight: 600; color: #fff; margin-bottom: 0.5rem; }
+    .step-desc { font-size: 0.88rem; line-height: 1.65; color: #888; }
+    .pricing-section { background: var(--paper); }
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 3.5rem; align-items: start; }
+    .pricing-card { background: #fff; border: 1.5px solid var(--border); border-radius: 8px; padding: 2rem; position: relative; transition: all 0.25s; }
+    .pricing-card:hover { border-color: var(--orange); box-shadow: 0 12px 40px rgba(232,80,10,0.1); transform: translateY(-4px); }
+    .pricing-card.featured { border-color: var(--orange); background: var(--ink); }
+    .pricing-card.featured .price-tier, .pricing-card.featured .price-amount, .pricing-card.featured .price-note, .pricing-card.featured .feature-item { color: #fff; }
+    .pricing-card.featured .feature-item::before { color: var(--orange); }
+    .featured-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--orange); color: #fff; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.8rem; border-radius: 20px; }
+    .price-tier { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+    .price-amount { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; letter-spacing: 0.02em; color: var(--ink); line-height: 1; }
+    .price-amount sup { font-size: 1.2rem; vertical-align: top; margin-top: 0.5rem; }
+    .price-note { font-size: 0.78rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .feature-list { list-style: none; margin-bottom: 1.5rem; }
+    .feature-item { font-size: 0.85rem; color: var(--ink); padding: 0.4rem 0; border-bottom: 1px solid var(--border); display: flex; gap: 0.5rem; }
+    .feature-item::before { content: '✓'; color: var(--orange); font-weight: 700; flex-shrink: 0; }
+    .pricing-card.featured .feature-item { border-color: rgba(255,255,255,0.1); }
+    .price-cta { display: block; width: 100%; text-align: center; padding: 0.8rem; border-radius: 4px; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.04em; text-decoration: none; transition: all 0.2s; background: var(--orange); color: #fff; }
+    .price-cta:hover { background: var(--orange-dark); }
+    .pricing-card:not(.featured) .price-cta { background: transparent; border: 1.5px solid var(--ink); color: var(--ink); }
+    .pricing-card:not(.featured) .price-cta:hover { background: var(--ink); color: #fff; }
+    .retainer-card { grid-column: 1 / -1; background: #fff3ee; border: 1.5px solid rgba(232,80,10,0.25); border-radius: 8px; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .retainer-title { font-weight: 700; font-size: 0.95rem; }
+    .retainer-desc { font-size: 0.82rem; color: var(--muted); }
+    .retainer-price { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--orange); white-space: nowrap; }
+    .faq-section { background: var(--cream); }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin-top: 3rem; background: var(--border); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+    .faq-item { background: #fff; padding: 1.5rem; }
+    .faq-q { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--ink); }
+    .faq-a { font-size: 0.85rem; line-height: 1.65; color: var(--muted); }
+    .cta-section { background: var(--orange); text-align: center; padding: 5rem; }
+    .cta-section .section-title { color: #fff; }
+    .cta-section .section-eyebrow { color: rgba(255,255,255,0.7); justify-content: center; }
+    .cta-section .section-eyebrow::before { background: rgba(255,255,255,0.5); }
+    .cta-section p { color: rgba(255,255,255,0.85); font-size: 1rem; margin: 1rem auto 2.5rem; max-width: 480px; line-height: 1.7; }
+    .btn-white { background: #fff; color: var(--orange); padding: 1rem 2.5rem; border-radius: 4px; font-weight: 700; font-size: 1rem; letter-spacing: 0.04em; text-decoration: none; transition: all 0.2s; display: inline-block; }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+    footer { background: #080808; padding: 2.5rem 5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: #fff; letter-spacing: 0.04em; }
+    .footer-logo span { color: var(--orange); }
+    .footer-copy { font-size: 0.75rem; color: #555; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 0.75rem; color: #555; text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--orange); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-eyebrow { animation: fadeUp 0.6s ease both; }
+    .hero-headline { animation: fadeUp 0.6s 0.1s ease both; }
+    .hero-sub { animation: fadeUp 0.6s 0.2s ease both; }
+    .hero-buttons { animation: fadeUp 0.6s 0.3s ease both; }
+    .hero-stats { animation: fadeUp 0.6s 0.4s ease both; }
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { min-height: 360px; }
+      .hero-left { padding: 3rem 1.5rem; }
+      section { padding: 3.5rem 1.5rem; }
+      .trust-bar { padding: 1.2rem 1.5rem; }
+      .faq-grid { grid-template-columns: 1fr; }
+      footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
+      .cta-section { padding: 3.5rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="#" class="nav-logo">Tradesite<span>Pro</span></a>
+  <ul class="nav-links">
+    <li><a href="#trades">Who We Serve</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get a Free Quote</a>
+</nav>
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Seminole County, Florida</div>
+    <h1 class="hero-headline">Websites That<br><em>Get You Hired</em></h1>
+    <p class="hero-sub">Built specifically for contractors, plumbers, roofers, electricians, and home service pros in Central Florida. One flat fee. You own it forever.</p>
+    <div class="hero-buttons">
+      <a href="#pricing" class="btn-primary">See Pricing</a>
+      <a href="#how" class="btn-secondary">How It Works</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><span class="stat-number">5</span><span class="stat-label">Days to Launch</span></div>
+      <div class="stat-item"><span class="stat-number">$0</span><span class="stat-label">Hidden Fees</span></div>
+      <div class="stat-item"><span class="stat-number">100%</span><span class="stat-label">You Own It</span></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="mockup-wrap">
+      <div class="browser-chrome">
+        <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+        <div class="url-bar">www.acmetreeservice.com</div>
+      </div>
+      <div class="mockup-body">
+        <div class="mock-hero-bar">
+          <div class="mock-biz-name">ACME TREE SERVICE</div>
+          <div class="mock-tagline">Serving Seminole County Since 2009 · Licensed & Insured</div>
+        </div>
+        <div class="mock-orange-bar">📞 FREE ESTIMATES · CALL (407) 555-0192</div>
+        <div class="mock-content">
+          <div class="mock-row">
+            <div class="mock-card"><div class="mock-card-icon">🌳</div><div class="mock-card-label">Tree Removal</div></div>
+            <div class="mock-card"><div class="mock-card-icon">✂️</div><div class="mock-card-label">Trimming</div></div>
+            <div class="mock-card"><div class="mock-card-icon">🪵</div><div class="mock-card-label">Stump Grinding</div></div>
+          </div>
+          <div class="mock-photos">
+            <div class="mock-photo">🏡</div>
+            <div class="mock-photo">🌲</div>
+            <div class="mock-photo">⭐</div>
+          </div>
+          <div class="mock-cta-btn">GET MY FREE ESTIMATE →</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="trust-bar">
+  <span class="trust-bar-label">Built for trades in:</span>
+  <div class="trust-items">
+    <div class="trust-item"><span>📍</span> Sanford</div>
+    <div class="trust-item"><span>📍</span> Lake Mary</div>
+    <div class="trust-item"><span>📍</span> Oviedo</div>
+    <div class="trust-item"><span>📍</span> Longwood</div>
+    <div class="trust-item"><span>📍</span> Casselberry</div>
+    <div class="trust-item"><span>📍</span> Altamonte Springs</div>
+  </div>
+</div>
+<section class="trades-section" id="trades">
+  <div class="section-eyebrow">Who We Serve</div>
+  <h2 class="section-title">Built for the Trades</h2>
+  <p class="section-sub">We work exclusively with home service businesses. That means your site is designed around getting you calls — not looking pretty in a design portfolio.</p>
+  <div class="trades-grid">
+    <div class="trade-card"><div class="trade-icon">🌳</div><div class="trade-name">Tree Trimming</div></div>
+    <div class="trade-card"><div class="trade-icon">🌿</div><div class="trade-name">Landscaping</div></div>
+    <div class="trade-card"><div class="trade-icon">🔧</div><div class="trade-name">Plumbing</div></div>
+    <div class="trade-card"><div class="trade-icon">⚡</div><div class="trade-name">Electrical</div></div>
+    <div class="trade-card"><div class="trade-icon">🏠</div><div class="trade-name">Roofing</div></div>
+    <div class="trade-card"><div class="trade-icon">💧</div><div class="trade-name">Pressure Washing</div></div>
+    <div class="trade-card"><div class="trade-icon">🏊</div><div class="trade-name">Pool Service</div></div>
+    <div class="trade-card"><div class="trade-icon">🔨</div><div class="trade-name">Handyman</div></div>
+  </div>
+</section>
+<section class="steps-section" id="how">
+  <div class="section-eyebrow">The Process</div>
+  <h2 class="section-title" style="color:#fff">Live in 5 Days or Less</h2>
+  <p class="section-sub" style="color:#888">No tech knowledge needed on your end. You handle the jobs — I handle everything digital.</p>
+  <div class="steps-grid">
+    <div class="step-card"><div class="step-number">01</div><div class="step-title">Quick Call or Text</div><div class="step-desc">Tell me your services, service area, and anything you want customers to know. Takes 15 minutes.</div></div>
+    <div class="step-card"><div class="step-number">02</div><div class="step-title">I Build Your Site</div><div class="step-desc">I design and build a professional, mobile-ready site specific to your trade. No templates that look like everyone else.</div></div>
+    <div class="step-card"><div class="step-number">03</div><div class="step-title">You Review & Approve</div><div class="step-desc">You look it over, request any changes. Most clients need 1 round of tweaks — done in 24 hours.</div></div>
+    <div class="step-card"><div class="step-number">04</div><div class="step-title">Go Live & Get Found</div><div class="step-desc">Site goes live on your domain with local SEO built in. Google indexes it within days. Calls start coming.</div></div>
+  </div>
+</section>
+<section class="pricing-section" id="pricing">
+  <div class="section-eyebrow">Transparent Pricing</div>
+  <h2 class="section-title">Flat Fees. No Surprises.</h2>
+  <p class="section-sub">One payment. You own the site forever. No monthly platform fees or locked-in contracts.</p>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div class="price-tier">Starter</div>
+      <div class="price-amount"><sup>$</sup>599</div>
+      <div class="price-note">One-time · 4-page site</div>
+      <ul class="feature-list">
+        <li class="feature-item">Home, Services, About, Contact</li>
+        <li class="feature-item">Mobile-optimized design</li>
+        <li class="feature-item">Contact form (emails you directly)</li>
+        <li class="feature-item">Google Maps embed</li>
+        <li class="feature-item">Basic local SEO setup</li>
+        <li class="feature-item">Domain included (1st year)</li>
+        <li class="feature-item">Live within 5 days</li>
+      </ul>
+      <a href="#contact" class="price-cta">Get Started</a>
+    </div>
+    <div class="pricing-card featured">
+      <div class="featured-badge">Most Popular</div>
+      <div class="price-tier">Pro</div>
+      <div class="price-amount"><sup>$</sup>899</div>
+      <div class="price-note">One-time · 6-page site</div>
+      <ul class="feature-list">
+        <li class="feature-item">Everything in Starter</li>
+        <li class="feature-item">Photo gallery of your work</li>
+        <li class="feature-item">Google Business Profile setup</li>
+        <li class="feature-item">Customer reviews section</li>
+        <li class="feature-item">Full local SEO optimization</li>
+        <li class="feature-item">Clickable phone # in header</li>
+        <li class="feature-item">2 rounds of revisions</li>
+      </ul>
+      <a href="#contact" class="price-cta">Get Started</a>
+    </div>
+    <div class="pricing-card">
+      <div class="price-tier">Premium</div>
+      <div class="price-amount"><sup>$</sup>1,299</div>
+      <div class="price-note">One-time · 8-page site</div>
+      <ul class="feature-list">
+        <li class="feature-item">Everything in Pro</li>
+        <li class="feature-item">Online booking integration</li>
+        <li class="feature-item">Service area page per city</li>
+        <li class="feature-item">Before/after photo section</li>
+        <li class="feature-item">3 rounds of revisions</li>
+        <li class="feature-item">1 month free support</li>
+        <li class="feature-item">Priority 3-day delivery</li>
+      </ul>
+      <a href="#contact" class="price-cta">Get Started</a>
+    </div>
+    <div class="retainer-card">
+      <div>
+        <div class="retainer-title">🔄 Monthly Hosting & Maintenance Plan</div>
+        <div class="retainer-desc">I handle hosting, keep your site secure, and make minor updates (text changes, new photos, hours) — so you never have to think about it.</div>
+      </div>
+      <div class="retainer-price">$39<span style="font-size:1rem;color:#888">/mo</span></div>
+    </div>
+  </div>
+</section>
+<section class="faq-section" id="faq">
+  <div class="section-eyebrow">Common Questions</div>
+  <h2 class="section-title">FAQ</h2>
+  <div class="faq-grid">
+    <div class="faq-item"><div class="faq-q">Do I own the website?</div><div class="faq-a">Yes, 100%. The domain is registered in your name and I can hand you the files at any time. You're never locked in with me.</div></div>
+    <div class="faq-item"><div class="faq-q">How long does it take?</div><div class="faq-a">Most sites go live within 5–7 days of our first call. Premium package gets priority treatment at 3 days.</div></div>
+    <div class="faq-item"><div class="faq-q">What do you need from me?</div><div class="faq-a">Your logo (if you have one), any photos of your work, list of services, and your contact info. I handle everything else — most clients send this in a text thread.</div></div>
+    <div class="faq-item"><div class="faq-q">Will people find me on Google?</div><div class="faq-a">Yes. Every site includes local SEO setup and Google Search Console connection so Google indexes it within days of going live.</div></div>
+    <div class="faq-item"><div class="faq-q">Can you update it if my info changes?</div><div class="faq-a">On the maintenance plan, just text or email me and I handle it within 48 hours. No tech knowledge needed on your end, ever.</div></div>
+    <div class="faq-item"><div class="faq-q">I already have a website — can you fix it?</div><div class="faq-a">Absolutely. Rebuilds are common and keep your existing domain so you don't lose any Google history. Same flat-fee pricing applies.</div></div>
+  </div>
+</section>
+<section class="cta-section" id="contact">
+  <div class="section-eyebrow">Get Started Today</div>
+  <h2 class="section-title">Ready to Start Getting More Calls?</h2>
+  <p>Takes 15 minutes to get the info I need. I'll have a draft ready for you within 5 days. No pressure, no commitment until you love what you see.</p>
+  <a href="mailto:hello@tradesitepro.com" class="btn-white">📧 Email Me to Get Started</a>
+</section>
+<footer>
+  <div class="footer-logo">Tradesite<span>Pro</span></div>
+  <div class="footer-copy">© 2025 TradesitePro · Seminole County, FL · All rights reserved</div>
+  <div class="footer-links">
+    <a href="#trades">Services</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+</body>
+</html>

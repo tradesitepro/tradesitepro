@@ -1,330 +1,607 @@
 <!DOCTYPE html>
+<!--
+  ============================================================
+  SEMINOLE HOME REPAIR — handyman site
+  ------------------------------------------------------------
+  BEFORE YOU PUBLISH, find-and-replace these 6 tokens
+  (they appear in a few places each — replace ALL):
+
+    1. Seminole Home Repair        -> your business / LLC name
+    2. (407) 555-0188              -> your phone number (display)
+    3. 4075550188                  -> your phone, digits only (tel:/sms: links)
+    4. hello@seminolehomerepair.com-> your email
+    5. YOUR_FORMSPREE_ID           -> your Formspree form id (see README)
+    6. YOUR_GOOGLE_REVIEW_LINK     -> your Google review/profile link
+
+  TO ADD A BEFORE/AFTER: drop two photos in images/gallery/
+  then add one block to the galleryItems array near the bottom.
+  ============================================================
+-->
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tradesite Pro | Websites for Home Service Businesses in Seminole County, FL</title>
-  <meta name="description" content="Professional websites built for contractors, plumbers, roofers, electricians and home service businesses in Seminole County, Florida. One-time flat fee. No surprises." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --ink: #0e0e0e; --paper: #f5f2ec; --orange: #e8500a;
-      --orange-dark: #c24008; --cream: #faf8f3;
-      --muted: #7a7265; --border: #d6d0c4; --card-bg: #ffffff;
-    }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Instrument Sans', sans-serif; background: var(--paper); color: var(--ink); overflow-x: hidden; }
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 2.5rem; background: rgba(245,242,236,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.04em; color: var(--ink); text-decoration: none; }
-    .nav-logo span { color: var(--orange); }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); text-decoration: none; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--orange); }
-    .nav-cta { background: var(--orange); color: #fff; padding: 0.55rem 1.3rem; border-radius: 4px; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
-    .nav-cta:hover { background: var(--orange-dark); }
-    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 80px; overflow: hidden; }
-    .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 5rem 3rem 5rem 5rem; position: relative; }
-    .hero-eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--orange); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.6rem; }
-    .hero-eyebrow::before { content: ''; display: block; width: 28px; height: 2px; background: var(--orange); }
-    .hero-headline { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3.5rem, 6vw, 5.5rem); line-height: 0.95; letter-spacing: 0.02em; color: var(--ink); margin-bottom: 1.8rem; }
-    .hero-headline em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--orange); }
-    .hero-sub { font-size: 1.05rem; line-height: 1.7; color: #3a3530; max-width: 440px; margin-bottom: 2.5rem; }
-    .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-primary { background: var(--orange); color: #fff; padding: 0.85rem 2rem; border-radius: 4px; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.04em; text-decoration: none; transition: background 0.2s, transform 0.15s; display: inline-block; }
-    .btn-primary:hover { background: var(--orange-dark); transform: translateY(-1px); }
-    .btn-secondary { background: transparent; color: var(--ink); padding: 0.85rem 2rem; border-radius: 4px; border: 1.5px solid var(--ink); font-weight: 600; font-size: 0.9rem; letter-spacing: 0.04em; text-decoration: none; transition: all 0.2s; display: inline-block; }
-    .btn-secondary:hover { background: var(--ink); color: var(--paper); }
-    .hero-stats { display: flex; gap: 2.5rem; margin-top: 3.5rem; padding-top: 2.5rem; border-top: 1px solid var(--border); }
-    .stat-item { display: flex; flex-direction: column; gap: 0.2rem; }
-    .stat-number { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; letter-spacing: 0.03em; color: var(--ink); }
-    .stat-label { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; }
-    .hero-right { background: var(--ink); display: flex; align-items: center; justify-content: center; padding: 3rem; position: relative; overflow: hidden; }
-    .hero-right::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(232,80,10,0.04) 40px, rgba(232,80,10,0.04) 41px); }
-    .mockup-wrap { width: 100%; max-width: 420px; position: relative; z-index: 1; }
-    .browser-chrome { background: #1e1e1e; border-radius: 10px 10px 0 0; padding: 0.7rem 1rem; display: flex; align-items: center; gap: 0.5rem; }
-    .dot { width: 10px; height: 10px; border-radius: 50%; }
-    .dot-r { background: #ff5f57; } .dot-y { background: #febc2e; } .dot-g { background: #28c840; }
-    .url-bar { flex: 1; background: #2a2a2a; border-radius: 4px; padding: 0.3rem 0.7rem; font-size: 0.7rem; color: #888; margin-left: 0.5rem; font-family: monospace; }
-    .mockup-body { background: #fff; border-radius: 0 0 10px 10px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
-    .mock-hero-bar { background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); padding: 1.5rem; text-align: center; }
-    .mock-biz-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: #fff; letter-spacing: 0.08em; }
-    .mock-tagline { font-size: 0.6rem; color: #aaa; margin-top: 0.2rem; }
-    .mock-orange-bar { background: var(--orange); padding: 0.5rem; text-align: center; font-size: 0.65rem; color: #fff; font-weight: 600; letter-spacing: 0.05em; }
-    .mock-content { padding: 1rem; }
-    .mock-row { display: flex; gap: 0.5rem; margin-bottom: 0.5rem; }
-    .mock-card { flex: 1; background: #f5f5f5; border-radius: 4px; padding: 0.6rem; font-size: 0.55rem; color: #555; text-align: center; }
-    .mock-card-icon { font-size: 1.1rem; margin-bottom: 0.2rem; }
-    .mock-card-label { font-weight: 600; color: #222; font-size: 0.6rem; }
-    .mock-cta-btn { display: block; width: 100%; background: var(--orange); color: #fff; text-align: center; padding: 0.6rem; border-radius: 4px; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.04em; margin-top: 0.5rem; }
-    .mock-photos { display: flex; gap: 0.4rem; margin-top: 0.5rem; }
-    .mock-photo { flex: 1; height: 45px; border-radius: 3px; background: #e0ddd8; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
-    .trust-bar { background: var(--ink); padding: 1.2rem 5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-    .trust-bar-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #666; white-space: nowrap; }
-    .trust-items { display: flex; gap: 2rem; flex-wrap: wrap; }
-    .trust-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: #aaa; }
-    .trust-item span { font-size: 1rem; }
-    section { padding: 5rem 5rem; }
-    .section-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.6rem; }
-    .section-eyebrow::before { content: ''; display: block; width: 20px; height: 2px; background: var(--orange); }
-    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1; letter-spacing: 0.03em; margin-bottom: 1.2rem; }
-    .section-sub { font-size: 1rem; line-height: 1.7; color: var(--muted); max-width: 540px; }
-    .trades-section { background: var(--cream); }
-    .trades-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; margin-top: 3rem; }
-    .trade-card { background: #fff; border: 1px solid var(--border); border-radius: 6px; padding: 1.5rem 1rem; text-align: center; transition: all 0.2s; }
-    .trade-card:hover { border-color: var(--orange); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(232,80,10,0.12); }
-    .trade-icon { font-size: 2rem; margin-bottom: 0.6rem; }
-    .trade-name { font-weight: 600; font-size: 0.85rem; color: var(--ink); }
-    .steps-section { background: var(--ink); }
-    .steps-section .section-title { color: #fff; }
-    .steps-section .section-eyebrow { color: var(--orange); }
-    .steps-section .section-eyebrow::before { background: var(--orange); }
-    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-top: 3.5rem; }
-    .step-number { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; color: rgba(232,80,10,0.2); line-height: 1; margin-bottom: 0.5rem; }
-    .step-title { font-size: 1rem; font-weight: 600; color: #fff; margin-bottom: 0.5rem; }
-    .step-desc { font-size: 0.88rem; line-height: 1.65; color: #888; }
-    .pricing-section { background: var(--paper); }
-    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 3.5rem; align-items: start; }
-    .pricing-card { background: #fff; border: 1.5px solid var(--border); border-radius: 8px; padding: 2rem; position: relative; transition: all 0.25s; }
-    .pricing-card:hover { border-color: var(--orange); box-shadow: 0 12px 40px rgba(232,80,10,0.1); transform: translateY(-4px); }
-    .pricing-card.featured { border-color: var(--orange); background: var(--ink); }
-    .pricing-card.featured .price-tier, .pricing-card.featured .price-amount, .pricing-card.featured .price-note, .pricing-card.featured .feature-item { color: #fff; }
-    .pricing-card.featured .feature-item::before { color: var(--orange); }
-    .featured-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--orange); color: #fff; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.8rem; border-radius: 20px; }
-    .price-tier { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
-    .price-amount { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; letter-spacing: 0.02em; color: var(--ink); line-height: 1; }
-    .price-amount sup { font-size: 1.2rem; vertical-align: top; margin-top: 0.5rem; }
-    .price-note { font-size: 0.78rem; color: var(--muted); margin-bottom: 1.5rem; }
-    .feature-list { list-style: none; margin-bottom: 1.5rem; }
-    .feature-item { font-size: 0.85rem; color: var(--ink); padding: 0.4rem 0; border-bottom: 1px solid var(--border); display: flex; gap: 0.5rem; }
-    .feature-item::before { content: '✓'; color: var(--orange); font-weight: 700; flex-shrink: 0; }
-    .pricing-card.featured .feature-item { border-color: rgba(255,255,255,0.1); }
-    .price-cta { display: block; width: 100%; text-align: center; padding: 0.8rem; border-radius: 4px; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.04em; text-decoration: none; transition: all 0.2s; background: var(--orange); color: #fff; }
-    .price-cta:hover { background: var(--orange-dark); }
-    .pricing-card:not(.featured) .price-cta { background: transparent; border: 1.5px solid var(--ink); color: var(--ink); }
-    .pricing-card:not(.featured) .price-cta:hover { background: var(--ink); color: #fff; }
-    .retainer-card { grid-column: 1 / -1; background: #fff3ee; border: 1.5px solid rgba(232,80,10,0.25); border-radius: 8px; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-    .retainer-title { font-weight: 700; font-size: 0.95rem; }
-    .retainer-desc { font-size: 0.82rem; color: var(--muted); }
-    .retainer-price { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--orange); white-space: nowrap; }
-    .faq-section { background: var(--cream); }
-    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin-top: 3rem; background: var(--border); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-    .faq-item { background: #fff; padding: 1.5rem; }
-    .faq-q { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--ink); }
-    .faq-a { font-size: 0.85rem; line-height: 1.65; color: var(--muted); }
-    .cta-section { background: var(--orange); text-align: center; padding: 5rem; }
-    .cta-section .section-title { color: #fff; }
-    .cta-section .section-eyebrow { color: rgba(255,255,255,0.7); justify-content: center; }
-    .cta-section .section-eyebrow::before { background: rgba(255,255,255,0.5); }
-    .cta-section p { color: rgba(255,255,255,0.85); font-size: 1rem; margin: 1rem auto 2.5rem; max-width: 480px; line-height: 1.7; }
-    .btn-white { background: #fff; color: var(--orange); padding: 1rem 2.5rem; border-radius: 4px; font-weight: 700; font-size: 1rem; letter-spacing: 0.04em; text-decoration: none; transition: all 0.2s; display: inline-block; }
-    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
-    footer { background: #080808; padding: 2.5rem 5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: #fff; letter-spacing: 0.04em; }
-    .footer-logo span { color: var(--orange); }
-    .footer-copy { font-size: 0.75rem; color: #555; }
-    .footer-links { display: flex; gap: 1.5rem; }
-    .footer-links a { font-size: 0.75rem; color: #555; text-decoration: none; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--orange); }
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-    .hero-eyebrow { animation: fadeUp 0.6s ease both; }
-    .hero-headline { animation: fadeUp 0.6s 0.1s ease both; }
-    .hero-sub { animation: fadeUp 0.6s 0.2s ease both; }
-    .hero-buttons { animation: fadeUp 0.6s 0.3s ease both; }
-    .hero-stats { animation: fadeUp 0.6s 0.4s ease both; }
-    @media (max-width: 900px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
-      .hero { grid-template-columns: 1fr; }
-      .hero-right { min-height: 360px; }
-      .hero-left { padding: 3rem 1.5rem; }
-      section { padding: 3.5rem 1.5rem; }
-      .trust-bar { padding: 1.2rem 1.5rem; }
-      .faq-grid { grid-template-columns: 1fr; }
-      footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
-      .cta-section { padding: 3.5rem 1.5rem; }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- ====== SEO ====== -->
+<title>Handyman in Seminole County, FL | Seminole Home Repair — Light Fixtures, Drywall, Doors, Cabinets</title>
+<meta name="description" content="Reliable handyman serving Seminole County, FL — Sanford, Lake Mary, Longwood, Oviedo, Winter Springs & Casselberry. Light fixture replacement, drywall repair, door adjustments, cabinet refinishing, vinyl floor fixes. Free quotes." />
+<meta name="geo.region" content="US-FL" />
+<meta name="geo.placename" content="Seminole County, Florida" />
+<link rel="canonical" href="https://www.seminolehomerepair.com/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Handyman in Seminole County, FL | Seminole Home Repair" />
+<meta property="og:description" content="The small jobs other contractors won't call you back for — done right, this week. Serving Seminole County, FL." />
+<meta property="og:locale" content="en_US" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@500;600&display=swap" rel="stylesheet" />
+
+<style>
+:root{
+  --ink:#1B241E;
+  --pine:#1F4D3A;
+  --pine-deep:#163A2C;
+  --paper:#F4F5F1;
+  --card:#FFFFFF;
+  --marigold:#E8971F;
+  --marigold-deep:#C77C12;
+  --line:#D9DCD3;
+  --muted:#5E6A60;
+  --on-pine:#EAF1EC;
+
+  --font-display:'Bricolage Grotesque', system-ui, sans-serif;
+  --font-body:'Hanken Grotesk', system-ui, sans-serif;
+  --font-mono:'Spline Sans Mono', ui-monospace, monospace;
+
+  --wrap:1140px;
+  --pad:clamp(20px,5vw,40px);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--pad)}
+
+/* ---- tape-measure tick rule: the signature ---- */
+.tick-rule{
+  height:14px;
+  background-image:
+    repeating-linear-gradient(90deg,var(--line) 0 1px,transparent 1px 22px),
+    repeating-linear-gradient(90deg,var(--pine) 0 1.5px,transparent 1.5px 110px);
+  background-position:0 bottom, 0 bottom;
+  background-repeat:repeat-x;
+  background-size:auto 7px, auto 13px;
+  opacity:.7;
+}
+
+/* eyebrow label w/ level-bubble dot */
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:.72rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--pine);
+  display:inline-flex;align-items:center;gap:.55em;
+  font-weight:600;
+}
+.eyebrow::before{
+  content:"";width:8px;height:8px;border-radius:50%;
+  background:var(--marigold);
+  box-shadow:0 0 0 3px rgba(232,151,31,.22);
+}
+.eyebrow.light{color:var(--marigold)}
+
+h1,h2,h3{font-family:var(--font-display);line-height:1.04;font-weight:700;letter-spacing:-.015em}
+
+/* ============ TOP BAR ============ */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(244,245,241,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:66px}
+.brand{font-family:var(--font-display);font-weight:800;font-size:1.16rem;letter-spacing:-.02em;display:flex;align-items:center;gap:.5em}
+.brand .lvl{
+  width:26px;height:14px;border:2px solid var(--pine);border-radius:7px;position:relative;flex:none;
+}
+.brand .lvl::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:8px;height:6px;border-radius:3px;background:var(--marigold)}
+.btn{
+  font-family:var(--font-mono);font-weight:600;font-size:.9rem;
+  border:none;border-radius:10px;cursor:pointer;text-decoration:none;
+  display:inline-flex;align-items:center;gap:.5em;
+  padding:.72em 1.1em;transition:transform .12s ease,background .15s ease,box-shadow .15s ease;
+}
+.btn-call{background:var(--marigold);color:#241700;box-shadow:0 2px 0 var(--marigold-deep)}
+.btn-call:hover{background:#f0a02a;transform:translateY(-1px)}
+.btn-call:active{transform:translateY(1px);box-shadow:0 1px 0 var(--marigold-deep)}
+.btn-ghost{background:transparent;color:var(--pine);border:1.5px solid var(--pine)}
+.btn-ghost:hover{background:var(--pine);color:#fff}
+.topbar .btn-call{padding:.62em 1em}
+
+/* ============ HERO ============ */
+.hero{padding:clamp(40px,7vw,76px) 0 clamp(34px,5vw,56px)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,56px);align-items:center}
+.hero h1{font-size:clamp(2.3rem,5.4vw,4rem);margin:.5rem 0 .2rem}
+.hero h1 .hl{color:var(--pine)}
+.hero .lede{font-size:clamp(1.05rem,2vw,1.2rem);color:var(--muted);max-width:34ch;margin:.6rem 0 1.4rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+.hero-cta .btn{font-size:1rem;padding:.85em 1.25em}
+.areas{margin-top:1.5rem;font-family:var(--font-mono);font-size:.78rem;color:var(--muted);letter-spacing:.02em;line-height:1.9}
+.areas b{color:var(--ink);font-weight:600}
+.trust-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:1.2rem}
+.pill{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.04em;background:#fff;border:1px solid var(--line);border-radius:999px;padding:.4em .85em;color:var(--pine);font-weight:600}
+
+/* hero visual = a before/after teaser card */
+.hero-visual{position:relative}
+.hero-card{
+  background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;
+  box-shadow:0 20px 50px -28px rgba(22,58,44,.5);
+}
+.hero-card .label{display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.1rem;border-bottom:1px solid var(--line)}
+.hero-card .label span{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* ============ SECTION SHELL ============ */
+.section{padding:clamp(48px,7vw,86px) 0}
+.section-head{max-width:60ch}
+.section-head h2{font-size:clamp(1.7rem,3.6vw,2.5rem);margin:.7rem 0 .4rem}
+.section-head p{color:var(--muted);font-size:1.05rem}
+
+/* ============ SERVICES ============ */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:2.2rem}
+.svc{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.4rem;
+  transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease;
+}
+.svc:hover{transform:translateY(-3px);box-shadow:0 16px 34px -24px rgba(22,58,44,.45);border-color:#c4cabe}
+.svc .ic{width:42px;height:42px;border-radius:10px;background:#EEF3EC;display:grid;place-items:center;margin-bottom:.9rem;color:var(--pine)}
+.svc h3{font-size:1.15rem;margin-bottom:.35rem}
+.svc p{font-size:.95rem;color:var(--muted)}
+.svc .note{display:block;margin-top:.6rem;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.03em;color:var(--marigold-deep)}
+
+/* ============ BEFORE / AFTER ============ */
+#work{background:var(--pine);color:var(--on-pine)}
+#work .eyebrow{color:var(--marigold)}
+#work .section-head h2{color:#fff}
+#work .section-head p{color:#bcd2c4}
+.ba-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:2.4rem}
+.ba-item{background:var(--pine-deep);border:1px solid rgba(255,255,255,.1);border-radius:16px;overflow:hidden}
+.ba-slider{position:relative;aspect-ratio:4/3;overflow:hidden;cursor:ew-resize;user-select:none;touch-action:none;background:#10271d}
+.ba-slider img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ba-after{clip-path:inset(0 0 0 50%)}
+.ba-tag{position:absolute;bottom:10px;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;background:rgba(16,39,29,.82);color:#fff;padding:.3em .6em;border-radius:6px;z-index:3}
+.ba-tag.b{left:10px}.ba-tag.a{right:10px}
+.ba-handle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--marigold);transform:translateX(-50%);z-index:4}
+.ba-handle::after{
+  content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:38px;height:38px;border-radius:50%;background:var(--marigold);
+  box-shadow:0 2px 10px rgba(0,0,0,.35);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23241700' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='15 18 9 12 15 6'/%3E%3Cpolyline points='9 18 3 12 9 6' transform='translate(12 0)'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:center;
+}
+.ba-cap{padding:.95rem 1.15rem;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.ba-cap h3{font-size:1.02rem;color:#fff}
+.ba-cap span{font-family:var(--font-mono);font-size:.68rem;color:#9fc0ac;letter-spacing:.04em;white-space:nowrap}
+.ba-empty{grid-column:1/-1;text-align:center;padding:2rem;color:#bcd2c4;font-family:var(--font-mono);font-size:.85rem}
+
+/* ============ WHY / TRUST ============ */
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:2rem}
+.why{padding:1.3rem 0;border-top:2px solid var(--ink)}
+.why .n{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;color:var(--marigold-deep);font-weight:600}
+.why h3{font-size:1.1rem;margin:.5rem 0 .3rem}
+.why p{font-size:.92rem;color:var(--muted)}
+
+/* ============ AREA ============ */
+.area-wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,56px);align-items:center}
+.area-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:1.4rem}
+.area-list a{
+  font-family:var(--font-mono);font-size:.82rem;font-weight:600;text-decoration:none;
+  background:#fff;border:1px solid var(--line);border-radius:8px;padding:.55em .9em;color:var(--pine);
+  transition:background .15s,color .15s;
+}
+.area-list a:hover{background:var(--pine);color:#fff}
+
+/* ============ CONTACT ============ */
+#contact{background:var(--ink);color:#EDEFEA}
+#contact .eyebrow{color:var(--marigold)}
+#contact h2{color:#fff;font-size:clamp(1.8rem,4vw,2.7rem)}
+#contact .sub{color:#aeb6ad;max-width:46ch;margin-top:.6rem}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,52px);margin-top:2.4rem}
+.contact-actions{display:flex;flex-direction:column;gap:14px}
+.cbtn{display:flex;align-items:center;gap:.9rem;background:#222d26;border:1px solid #33413a;border-radius:13px;padding:1.05rem 1.2rem;text-decoration:none;color:#fff;transition:border-color .15s,transform .12s}
+.cbtn:hover{border-color:var(--marigold);transform:translateX(3px)}
+.cbtn .ic{width:40px;height:40px;border-radius:9px;background:var(--marigold);color:#241700;display:grid;place-items:center;flex:none}
+.cbtn b{display:block;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:#9aa39b;font-weight:600}
+.cbtn span{font-size:1.1rem;font-weight:600}
+form.quote{display:grid;gap:12px}
+form.quote label{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:#9aa39b}
+form.quote input,form.quote textarea{
+  width:100%;background:#222d26;border:1px solid #33413a;border-radius:10px;
+  padding:.8rem .9rem;color:#fff;font-family:var(--font-body);font-size:1rem;
+}
+form.quote input:focus,form.quote textarea:focus{outline:2px solid var(--marigold);border-color:transparent}
+form.quote textarea{min-height:110px;resize:vertical}
+form.quote .btn-call{justify-content:center;font-size:1rem;padding:.95em}
+.form-note{font-size:.78rem;color:#8e978f}
+
+/* ============ FOOTER ============ */
+footer{background:var(--pine-deep);color:#bcd2c4;padding:2.6rem 0;font-size:.86rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
+footer a{color:var(--marigold);text-decoration:none}
+footer .fine{font-family:var(--font-mono);font-size:.72rem;color:#7fa08c}
+
+/* ============ REVEAL ANIM ============ */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:880px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-visual{order:-1}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .area-wrap{grid-template-columns:1fr}
+  .ba-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .svc-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .topbar .brand span.txt{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+}
+</style>
 </head>
 <body>
-<nav>
-  <a href="#" class="nav-logo">Tradesite<span>Pro</span></a>
-  <ul class="nav-links">
-    <li><a href="#trades">Who We Serve</a></li>
-    <li><a href="#how">How It Works</a></li>
-    <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#faq">FAQ</a></li>
-  </ul>
-  <a href="#contact" class="nav-cta">Get a Free Quote</a>
-</nav>
+
+<!-- ===== TOP BAR ===== -->
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="lvl"></span><span class="txt">Seminole Home Repair</span></div>
+    <a class="btn btn-call" href="tel:4075550188">📞 (407) 555-0188</a>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
 <section class="hero">
-  <div class="hero-left">
-    <div class="hero-eyebrow">Seminole County, Florida</div>
-    <h1 class="hero-headline">Websites That<br><em>Get You Hired</em></h1>
-    <p class="hero-sub">Built specifically for contractors, plumbers, roofers, electricians, and home service pros in Central Florida. One flat fee. You own it forever.</p>
-    <div class="hero-buttons">
-      <a href="#pricing" class="btn-primary">See Pricing</a>
-      <a href="#how" class="btn-secondary">How It Works</a>
-    </div>
-    <div class="hero-stats">
-      <div class="stat-item"><span class="stat-number">5</span><span class="stat-label">Days to Launch</span></div>
-      <div class="stat-item"><span class="stat-number">$0</span><span class="stat-label">Hidden Fees</span></div>
-      <div class="stat-item"><span class="stat-number">100%</span><span class="stat-label">You Own It</span></div>
-    </div>
-  </div>
-  <div class="hero-right">
-    <div class="mockup-wrap">
-      <div class="browser-chrome">
-        <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
-        <div class="url-bar">www.acmetreeservice.com</div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">Seminole County, FL · Licensed &amp; Insured</span>
+      <h1>The <span class="hl">small jobs</span> nobody else will call you back for.</h1>
+      <p class="lede">Lights, drywall, sticking doors, cabinets, popping floors — done right, and done this week.</p>
+      <div class="hero-cta">
+        <a class="btn btn-call" href="tel:4075550188">📞 Call for a free quote</a>
+        <a class="btn btn-ghost" href="sms:4075550188">💬 Text a photo</a>
       </div>
-      <div class="mockup-body">
-        <div class="mock-hero-bar">
-          <div class="mock-biz-name">ACME TREE SERVICE</div>
-          <div class="mock-tagline">Serving Seminole County Since 2009 · Licensed & Insured</div>
-        </div>
-        <div class="mock-orange-bar">📞 FREE ESTIMATES · CALL (407) 555-0192</div>
-        <div class="mock-content">
-          <div class="mock-row">
-            <div class="mock-card"><div class="mock-card-icon">🌳</div><div class="mock-card-label">Tree Removal</div></div>
-            <div class="mock-card"><div class="mock-card-icon">✂️</div><div class="mock-card-label">Trimming</div></div>
-            <div class="mock-card"><div class="mock-card-icon">🪵</div><div class="mock-card-label">Stump Grinding</div></div>
-          </div>
-          <div class="mock-photos">
-            <div class="mock-photo">🏡</div>
-            <div class="mock-photo">🌲</div>
-            <div class="mock-photo">⭐</div>
-          </div>
-          <div class="mock-cta-btn">GET MY FREE ESTIMATE →</div>
+      <div class="trust-pills">
+        <span class="pill">Free quotes</span>
+        <span class="pill">On-time, every time</span>
+        <span class="pill">Small-job specialist</span>
+        <span class="pill">Tidy work, no mess left</span>
+      </div>
+      <p class="areas"><b>Serving:</b> Sanford · Lake Mary · Longwood · Oviedo · Winter Springs · Casselberry · Altamonte Springs</p>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="label"><span>Before / after</span><span>Drag to reveal →</span></div>
+        <div class="ba-slider" data-ba>
+          <img class="ba-before" alt="Before repair" src="images/gallery/before-01.jpg" />
+          <img class="ba-after" alt="After repair" src="images/gallery/after-01.jpg" />
+          <span class="ba-tag b">Before</span>
+          <span class="ba-tag a">After</span>
+          <div class="ba-handle"></div>
         </div>
       </div>
     </div>
   </div>
 </section>
-<div class="trust-bar">
-  <span class="trust-bar-label">Built for trades in:</span>
-  <div class="trust-items">
-    <div class="trust-item"><span>📍</span> Sanford</div>
-    <div class="trust-item"><span>📍</span> Lake Mary</div>
-    <div class="trust-item"><span>📍</span> Oviedo</div>
-    <div class="trust-item"><span>📍</span> Longwood</div>
-    <div class="trust-item"><span>📍</span> Casselberry</div>
-    <div class="trust-item"><span>📍</span> Altamonte Springs</div>
-  </div>
-</div>
-<section class="trades-section" id="trades">
-  <div class="section-eyebrow">Who We Serve</div>
-  <h2 class="section-title">Built for the Trades</h2>
-  <p class="section-sub">We work exclusively with home service businesses. That means your site is designed around getting you calls — not looking pretty in a design portfolio.</p>
-  <div class="trades-grid">
-    <div class="trade-card"><div class="trade-icon">🌳</div><div class="trade-name">Tree Trimming</div></div>
-    <div class="trade-card"><div class="trade-icon">🌿</div><div class="trade-name">Landscaping</div></div>
-    <div class="trade-card"><div class="trade-icon">🔧</div><div class="trade-name">Plumbing</div></div>
-    <div class="trade-card"><div class="trade-icon">⚡</div><div class="trade-name">Electrical</div></div>
-    <div class="trade-card"><div class="trade-icon">🏠</div><div class="trade-name">Roofing</div></div>
-    <div class="trade-card"><div class="trade-icon">💧</div><div class="trade-name">Pressure Washing</div></div>
-    <div class="trade-card"><div class="trade-icon">🏊</div><div class="trade-name">Pool Service</div></div>
-    <div class="trade-card"><div class="trade-icon">🔨</div><div class="trade-name">Handyman</div></div>
-  </div>
-</section>
-<section class="steps-section" id="how">
-  <div class="section-eyebrow">The Process</div>
-  <h2 class="section-title" style="color:#fff">Live in 5 Days or Less</h2>
-  <p class="section-sub" style="color:#888">No tech knowledge needed on your end. You handle the jobs — I handle everything digital.</p>
-  <div class="steps-grid">
-    <div class="step-card"><div class="step-number">01</div><div class="step-title">Quick Call or Text</div><div class="step-desc">Tell me your services, service area, and anything you want customers to know. Takes 15 minutes.</div></div>
-    <div class="step-card"><div class="step-number">02</div><div class="step-title">I Build Your Site</div><div class="step-desc">I design and build a professional, mobile-ready site specific to your trade. No templates that look like everyone else.</div></div>
-    <div class="step-card"><div class="step-number">03</div><div class="step-title">You Review & Approve</div><div class="step-desc">You look it over, request any changes. Most clients need 1 round of tweaks — done in 24 hours.</div></div>
-    <div class="step-card"><div class="step-number">04</div><div class="step-title">Go Live & Get Found</div><div class="step-desc">Site goes live on your domain with local SEO built in. Google indexes it within days. Calls start coming.</div></div>
-  </div>
-</section>
-<section class="pricing-section" id="pricing">
-  <div class="section-eyebrow">Transparent Pricing</div>
-  <h2 class="section-title">Flat Fees. No Surprises.</h2>
-  <p class="section-sub">One payment. You own the site forever. No monthly platform fees or locked-in contracts.</p>
-  <div class="pricing-grid">
-    <div class="pricing-card">
-      <div class="price-tier">Starter</div>
-      <div class="price-amount"><sup>$</sup>599</div>
-      <div class="price-note">One-time · 4-page site</div>
-      <ul class="feature-list">
-        <li class="feature-item">Home, Services, About, Contact</li>
-        <li class="feature-item">Mobile-optimized design</li>
-        <li class="feature-item">Contact form (emails you directly)</li>
-        <li class="feature-item">Google Maps embed</li>
-        <li class="feature-item">Basic local SEO setup</li>
-        <li class="feature-item">Domain included (1st year)</li>
-        <li class="feature-item">Live within 5 days</li>
-      </ul>
-      <a href="#contact" class="price-cta">Get Started</a>
+
+<div class="tick-rule"></div>
+
+<!-- ===== SERVICES ===== -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">What I do</span>
+      <h2>Honest fixes for the to-do list that never ends.</h2>
+      <p>No job too small. If it's annoying you every day, it's worth a call.</p>
     </div>
-    <div class="pricing-card featured">
-      <div class="featured-badge">Most Popular</div>
-      <div class="price-tier">Pro</div>
-      <div class="price-amount"><sup>$</sup>899</div>
-      <div class="price-note">One-time · 6-page site</div>
-      <ul class="feature-list">
-        <li class="feature-item">Everything in Starter</li>
-        <li class="feature-item">Photo gallery of your work</li>
-        <li class="feature-item">Google Business Profile setup</li>
-        <li class="feature-item">Customer reviews section</li>
-        <li class="feature-item">Full local SEO optimization</li>
-        <li class="feature-item">Clickable phone # in header</li>
-        <li class="feature-item">2 rounds of revisions</li>
-      </ul>
-      <a href="#contact" class="price-cta">Get Started</a>
-    </div>
-    <div class="pricing-card">
-      <div class="price-tier">Premium</div>
-      <div class="price-amount"><sup>$</sup>1,299</div>
-      <div class="price-note">One-time · 8-page site</div>
-      <ul class="feature-list">
-        <li class="feature-item">Everything in Pro</li>
-        <li class="feature-item">Online booking integration</li>
-        <li class="feature-item">Service area page per city</li>
-        <li class="feature-item">Before/after photo section</li>
-        <li class="feature-item">3 rounds of revisions</li>
-        <li class="feature-item">1 month free support</li>
-        <li class="feature-item">Priority 3-day delivery</li>
-      </ul>
-      <a href="#contact" class="price-cta">Get Started</a>
-    </div>
-    <div class="retainer-card">
-      <div>
-        <div class="retainer-title">🔄 Monthly Hosting & Maintenance Plan</div>
-        <div class="retainer-desc">I handle hosting, keep your site secure, and make minor updates (text changes, new photos, hours) — so you never have to think about it.</div>
+    <div class="svc-grid">
+      <div class="svc reveal">
+        <div class="ic">💡</div>
+        <h3>Light &amp; fixture swaps</h3>
+        <p>New light fixtures, ceiling fans, switches and outlets swapped on existing wiring — bright, level, and safe.</p>
+        <span class="note">Fixture replacement only — no panel or new-circuit work</span>
       </div>
-      <div class="retainer-price">$39<span style="font-size:1rem;color:#888">/mo</span></div>
+      <div class="svc reveal">
+        <div class="ic">🔧</div>
+        <h3>Drywall &amp; small repairs</h3>
+        <p>Holes, dings, cracks and anchor damage patched, sanded and textured so you can't tell it was ever there.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="ic">🚪</div>
+        <h3>Doors that won't close</h3>
+        <p>Sticking, dragging or misaligned doors re-hung and adjusted. Hinges, strikes, and latches that actually catch.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="ic">🗄️</div>
+        <h3>Cabinet refinishing</h3>
+        <p>Tired kitchen and bath cabinets sanded, sealed and refinished — a fresh look without a full remodel.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="ic">🟫</div>
+        <h3>Vinyl floor fixes</h3>
+        <p>Planks that pop, lift or peel re-seated and secured so your floor lies flat and stays put.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="ic">✅</div>
+        <h3>Your odd-job list</h3>
+        <p>Mounting, caulking, weatherstripping, hardware, small assembly — hand me the list and I'll knock it out.</p>
+      </div>
     </div>
   </div>
 </section>
-<section class="faq-section" id="faq">
-  <div class="section-eyebrow">Common Questions</div>
-  <h2 class="section-title">FAQ</h2>
-  <div class="faq-grid">
-    <div class="faq-item"><div class="faq-q">Do I own the website?</div><div class="faq-a">Yes, 100%. The domain is registered in your name and I can hand you the files at any time. You're never locked in with me.</div></div>
-    <div class="faq-item"><div class="faq-q">How long does it take?</div><div class="faq-a">Most sites go live within 5–7 days of our first call. Premium package gets priority treatment at 3 days.</div></div>
-    <div class="faq-item"><div class="faq-q">What do you need from me?</div><div class="faq-a">Your logo (if you have one), any photos of your work, list of services, and your contact info. I handle everything else — most clients send this in a text thread.</div></div>
-    <div class="faq-item"><div class="faq-q">Will people find me on Google?</div><div class="faq-a">Yes. Every site includes local SEO setup and Google Search Console connection so Google indexes it within days of going live.</div></div>
-    <div class="faq-item"><div class="faq-q">Can you update it if my info changes?</div><div class="faq-a">On the maintenance plan, just text or email me and I handle it within 48 hours. No tech knowledge needed on your end, ever.</div></div>
-    <div class="faq-item"><div class="faq-q">I already have a website — can you fix it?</div><div class="faq-a">Absolutely. Rebuilds are common and keep your existing domain so you don't lose any Google history. Same flat-fee pricing applies.</div></div>
+
+<!-- ===== BEFORE / AFTER GALLERY ===== -->
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow light">The proof</span>
+      <h2>Before &amp; after</h2>
+      <p>Real jobs around Seminole County. Drag the slider to see the difference.</p>
+    </div>
+    <div class="ba-grid" id="gallery"><!-- filled by script --></div>
   </div>
 </section>
-<section class="cta-section" id="contact">
-  <div class="section-eyebrow">Get Started Today</div>
-  <h2 class="section-title">Ready to Start Getting More Calls?</h2>
-  <p>Takes 15 minutes to get the info I need. I'll have a draft ready for you within 5 days. No pressure, no commitment until you love what you see.</p>
-  <a href="mailto:hello@tradesitepro.com" class="btn-white">📧 Email Me to Get Started</a>
+
+<div class="tick-rule"></div>
+
+<!-- ===== WHY ME ===== -->
+<section class="section" id="why">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Why homeowners call me back</span>
+      <h2>Reliable beats fancy.</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why reveal"><div class="n">01</div><h3>I show up</h3><p>You get a real answer on timing — and I'm there when I said I would be.</p></div>
+      <div class="why reveal"><div class="n">02</div><h3>Clear quotes</h3><p>Up-front pricing before I start. No surprise add-ons at the end.</p></div>
+      <div class="why reveal"><div class="n">03</div><h3>Clean work</h3><p>I treat your home like mine. The mess leaves with me.</p></div>
+      <div class="why reveal"><div class="n">04</div><h3>Licensed &amp; insured</h3><p>A registered Florida LLC carrying liability coverage on every job.</p></div>
+    </div>
+  </div>
 </section>
+
+<!-- ===== SERVICE AREA ===== -->
+<section class="section" id="area" style="background:#fff;border-block:1px solid var(--line)">
+  <div class="wrap area-wrap">
+    <div class="reveal">
+      <span class="eyebrow">Where I work</span>
+      <h2 style="font-size:clamp(1.7rem,3.6vw,2.4rem);margin:.6rem 0 .5rem">Proudly local to Seminole County, Florida</h2>
+      <p style="color:var(--muted)">Based in Sanford and covering the surrounding towns. Not sure if you're in range? Call and ask — I probably drive past you.</p>
+      <div class="area-list">
+        <a href="tel:4075550188">Sanford</a>
+        <a href="tel:4075550188">Lake Mary</a>
+        <a href="tel:4075550188">Longwood</a>
+        <a href="tel:4075550188">Oviedo</a>
+        <a href="tel:4075550188">Winter Springs</a>
+        <a href="tel:4075550188">Casselberry</a>
+        <a href="tel:4075550188">Altamonte Springs</a>
+        <a href="tel:4075550188">Heathrow</a>
+        <a href="tel:4075550188">Geneva</a>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="hero-card">
+        <div class="label"><span>Reviews</span><a href="YOUR_GOOGLE_REVIEW_LINK" style="font-family:var(--font-mono);font-size:.72rem;color:var(--pine);text-decoration:none;font-weight:600">★★★★★ on Google →</a></div>
+        <div style="padding:1.4rem 1.3rem;color:var(--muted)">
+          <p style="font-style:italic;color:var(--ink)">“Replace this with a real review once you have a few — short quotes from happy customers build more trust than anything else on the page.”</p>
+          <p style="font-family:var(--font-mono);font-size:.74rem;margin-top:.8rem;color:var(--pine)">— Customer name, Lake Mary</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Get a free quote</span>
+      <h2>Tell me what's bugging you. I'll handle it.</h2>
+      <p class="sub">Call or text is fastest — send a photo and I can usually quote it on the spot.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-actions reveal">
+        <a class="cbtn" href="tel:4075550188"><span class="ic">📞</span><span><b>Call</b><span>(407) 555-0188</span></span></a>
+        <a class="cbtn" href="sms:4075550188"><span class="ic">💬</span><span><b>Text a photo</b><span>(407) 555-0188</span></span></a>
+        <a class="cbtn" href="mailto:hello@seminolehomerepair.com"><span class="ic">✉️</span><span><b>Email</b><span>hello@seminolehomerepair.com</span></span></a>
+      </div>
+      <form class="quote reveal" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+        <div>
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required placeholder="Your name" />
+        </div>
+        <div>
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" required placeholder="(407) 555-0000" />
+        </div>
+        <div>
+          <label for="job">What needs fixing?</label>
+          <textarea id="job" name="message" required placeholder="e.g. two light fixtures + a door that won't latch, in Lake Mary"></textarea>
+        </div>
+        <button class="btn btn-call" type="submit">Send my quote request</button>
+        <p class="form-note">Until you connect Formspree (see README), the buttons on the left work right away.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
 <footer>
-  <div class="footer-logo">Tradesite<span>Pro</span></div>
-  <div class="footer-copy">© 2025 TradesitePro · Seminole County, FL · All rights reserved</div>
-  <div class="footer-links">
-    <a href="#trades">Services</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#contact">Contact</a>
+  <div class="wrap">
+    <div>
+      <strong style="color:#fff;font-family:var(--font-display)">Seminole Home Repair</strong><br/>
+      <span class="fine">Handyman services · Seminole County, FL · Licensed &amp; insured</span>
+    </div>
+    <div class="fine">
+      <a href="tel:4075550188">(407) 555-0188</a> · <a href="mailto:hello@seminolehomerepair.com">hello@seminolehomerepair.com</a><br/>
+      © <span id="yr"></span> Seminole Home Repair LLC
+    </div>
   </div>
 </footer>
+
+<!-- ===== LOCAL BUSINESS SCHEMA (helps Google show you in local results) ===== -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"HomeAndConstructionBusiness",
+  "name":"Seminole Home Repair",
+  "image":"https://www.seminolehomerepair.com/images/gallery/after-01.jpg",
+  "telephone":"+1-407-555-0188",
+  "email":"hello@seminolehomerepair.com",
+  "url":"https://www.seminolehomerepair.com/",
+  "priceRange":"$$",
+  "address":{"@type":"PostalAddress","addressLocality":"Sanford","addressRegion":"FL","addressCountry":"US"},
+  "areaServed":[
+    {"@type":"City","name":"Sanford"},{"@type":"City","name":"Lake Mary"},
+    {"@type":"City","name":"Longwood"},{"@type":"City","name":"Oviedo"},
+    {"@type":"City","name":"Winter Springs"},{"@type":"City","name":"Casselberry"},
+    {"@type":"City","name":"Altamonte Springs"}
+  ],
+  "knowsAbout":["light fixture replacement","drywall repair","door adjustment","cabinet refinishing","vinyl floor repair","handyman services"],
+  "hasOfferCatalog":{
+    "@type":"OfferCatalog","name":"Handyman services",
+    "itemListElement":[
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Light & fixture replacement"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Drywall & small repairs"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Door adjustment & repair"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Cabinet refinishing"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Vinyl floor repair"}}
+    ]
+  }
+}
+</script>
+
+<script>
+/* ============================================================
+   GALLERY — add a before/after by dropping two photos into
+   images/gallery/ and adding ONE block here.
+   Recommended size: 1200x900 (4:3), JPG, under ~400KB each.
+   ============================================================ */
+const galleryItems = [
+  {
+    title:"Kitchen light fixture swap",
+    location:"Lake Mary",
+    before:"images/gallery/before-01.jpg",
+    after:"images/gallery/after-01.jpg"
+  },
+  {
+    title:"Drywall hole patched & textured",
+    location:"Sanford",
+    before:"images/gallery/before-02.jpg",
+    after:"images/gallery/after-02.jpg"
+  },
+  {
+    title:"Cabinet refinish",
+    location:"Oviedo",
+    before:"images/gallery/before-03.jpg",
+    after:"images/gallery/after-03.jpg"
+  },
+  {
+    title:"Vinyl plank re-seated",
+    location:"Winter Springs",
+    before:"images/gallery/before-04.jpg",
+    after:"images/gallery/after-04.jpg"
+  }
+  /* ,{ title:"New job", location:"City", before:"images/gallery/before-05.jpg", after:"images/gallery/after-05.jpg" } */
+];
+
+/* placeholder shown if a photo file isn't there yet (and in preview) */
+function placeholder(text,kind){
+  const bg = kind==="after" ? "1F4D3A" : "8a8f86";
+  const fg = kind==="after" ? "EAF1EC" : "ffffff";
+  return "data:image/svg+xml,"+encodeURIComponent(
+    `<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'><rect width='800' height='600' fill='#${bg}'/><text x='50%' y='46%' fill='#${fg}' font-family='monospace' font-size='30' text-anchor='middle'>${kind.toUpperCase()}</text><text x='50%' y='56%' fill='#${fg}' opacity='.75' font-family='monospace' font-size='20' text-anchor='middle'>${text}</text></svg>`
+  );
+}
+
+const gallery = document.getElementById('gallery');
+if(!galleryItems.length){
+  gallery.innerHTML = '<p class="ba-empty">Add your first before/after in images/gallery/ — see README.</p>';
+}else{
+  galleryItems.forEach(item=>{
+    const el = document.createElement('div');
+    el.className='ba-item reveal';
+    el.innerHTML = `
+      <div class="ba-slider" data-ba>
+        <img class="ba-before" alt="Before — ${item.title}" src="${item.before}"
+             onerror="this.onerror=null;this.src=placeholder('drop a photo','before')"/>
+        <img class="ba-after" alt="After — ${item.title}" src="${item.after}"
+             onerror="this.onerror=null;this.src=placeholder('drop a photo','after')"/>
+        <span class="ba-tag b">Before</span>
+        <span class="ba-tag a">After</span>
+        <div class="ba-handle"></div>
+      </div>
+      <div class="ba-cap"><h3>${item.title}</h3><span>${item.location}</span></div>`;
+    gallery.appendChild(el);
+  });
+}
+
+/* ---- before/after drag logic (mouse, touch, keyboard) ---- */
+function initBA(slider){
+  const after = slider.querySelector('.ba-after');
+  const handle = slider.querySelector('.ba-handle');
+  let dragging=false;
+  const set=p=>{
+    p=Math.max(0,Math.min(100,p));
+    after.style.clipPath=`inset(0 0 0 ${p}%)`;
+    handle.style.left=p+'%';
+  };
+  const fromEvent=e=>{
+    const r=slider.getBoundingClientRect();
+    const x=(e.touches?e.touches[0].clientX:e.clientX)-r.left;
+    set((x/r.width)*100);
+  };
+  slider.addEventListener('mousedown',e=>{dragging=true;fromEvent(e)});
+  window.addEventListener('mousemove',e=>{if(dragging)fromEvent(e)});
+  window.addEventListener('mouseup',()=>dragging=false);
+  slider.addEventListener('touchstart',e=>{dragging=true;fromEvent(e)},{passive:true});
+  slider.addEventListener('touchmove',e=>{if(dragging)fromEvent(e)},{passive:true});
+  slider.addEventListener('touchend',()=>dragging=false);
+  // keyboard
+  slider.tabIndex=0; slider.setAttribute('role','slider'); slider.setAttribute('aria-label','Before and after comparison');
+  let pos=50;
+  slider.addEventListener('keydown',e=>{
+    if(e.key==='ArrowLeft'){pos-=5;set(pos);e.preventDefault();}
+    if(e.key==='ArrowRight'){pos+=5;set(pos);e.preventDefault();}
+  });
+}
+document.querySelectorAll('[data-ba]').forEach(initBA);
+
+/* ---- scroll reveal ---- */
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
 </body>
 </html>

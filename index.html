@@ -1,607 +1,280 @@
 <!DOCTYPE html>
-<!--
-  ============================================================
-  SEMINOLE HOME REPAIR — handyman site
-  ------------------------------------------------------------
-  BEFORE YOU PUBLISH, find-and-replace these 6 tokens
-  (they appear in a few places each — replace ALL):
-
-    1. Seminole Home Repair        -> your business / LLC name
-    2. (407) 555-0188              -> your phone number (display)
-    3. 4075550188                  -> your phone, digits only (tel:/sms: links)
-    4. hello@seminolehomerepair.com-> your email
-    5. YOUR_FORMSPREE_ID           -> your Formspree form id (see README)
-    6. YOUR_GOOGLE_REVIEW_LINK     -> your Google review/profile link
-
-  TO ADD A BEFORE/AFTER: drop two photos in images/gallery/
-  then add one block to the galleryItems array near the bottom.
-  ============================================================
--->
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<!-- ====== SEO ====== -->
-<title>Handyman in Seminole County, FL | Seminole Home Repair — Light Fixtures, Drywall, Doors, Cabinets</title>
-<meta name="description" content="Reliable handyman serving Seminole County, FL — Sanford, Lake Mary, Longwood, Oviedo, Winter Springs & Casselberry. Light fixture replacement, drywall repair, door adjustments, cabinet refinishing, vinyl floor fixes. Free quotes." />
+<title>TradeSite Pro Handyman | Seminole &amp; Orange County, FL — Call or text 407-519-0553</title>
+<meta name="description" content="Handyman services in Seminole and Orange County, Central Florida. Drywall, doors, fixtures, cabinets, floors and odd jobs. Call or text 407-519-0553, or email mark@tradesiteprofl.com for a free quote." />
 <meta name="geo.region" content="US-FL" />
 <meta name="geo.placename" content="Seminole County, Florida" />
-<link rel="canonical" href="https://www.seminolehomerepair.com/" />
+<link rel="canonical" href="https://www.tradesiteprofl.com/" />
 
-<!-- Open Graph -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Handyman in Seminole County, FL | Seminole Home Repair" />
-<meta property="og:description" content="The small jobs other contractors won't call you back for — done right, this week. Serving Seminole County, FL." />
+<meta property="og:title" content="TradeSite Pro Handyman — Seminole &amp; Orange County, FL" />
+<meta property="og:description" content="The small jobs done right. Call or text 407-519-0553 for a free quote." />
 <meta property="og:locale" content="en_US" />
 
-<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@85,600;85,800;100,400;100,500;100,600&display=swap" rel="stylesheet" />
 
 <style>
 :root{
-  --ink:#1B241E;
-  --pine:#1F4D3A;
-  --pine-deep:#163A2C;
-  --paper:#F4F5F1;
-  --card:#FFFFFF;
-  --marigold:#E8971F;
-  --marigold-deep:#C77C12;
-  --line:#D9DCD3;
-  --muted:#5E6A60;
-  --on-pine:#EAF1EC;
-
-  --font-display:'Bricolage Grotesque', system-ui, sans-serif;
-  --font-body:'Hanken Grotesk', system-ui, sans-serif;
-  --font-mono:'Spline Sans Mono', ui-monospace, monospace;
-
-  --wrap:1140px;
+  --ink:#17222C;
+  --navy:#22405B;
+  --paper:#F5F3EE;
+  --white:#FFFFFF;
+  --line:#DDD9D0;
+  --muted:#5B6570;
+  --orange:#E4572E;
+  --orange-dark:#C0431E;
+  --font:'Archivo', system-ui, -apple-system, sans-serif;
+  --wrap:1040px;
   --pad:clamp(20px,5vw,40px);
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{
-  font-family:var(--font-body);
-  color:var(--ink);
-  background:var(--paper);
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-}
-img{max-width:100%;display:block}
+body{font-family:var(--font);color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased}
 a{color:inherit}
-
+h1,h2,h3{font-stretch:85%;font-weight:800;line-height:1.05;letter-spacing:-.01em}
 .wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--pad)}
 
-/* ---- tape-measure tick rule: the signature ---- */
-.tick-rule{
-  height:14px;
-  background-image:
-    repeating-linear-gradient(90deg,var(--line) 0 1px,transparent 1px 22px),
-    repeating-linear-gradient(90deg,var(--pine) 0 1.5px,transparent 1.5px 110px);
-  background-position:0 bottom, 0 bottom;
-  background-repeat:repeat-x;
-  background-size:auto 7px, auto 13px;
-  opacity:.7;
-}
-
-/* eyebrow label w/ level-bubble dot */
-.eyebrow{
-  font-family:var(--font-mono);
-  font-size:.72rem;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--pine);
-  display:inline-flex;align-items:center;gap:.55em;
-  font-weight:600;
-}
-.eyebrow::before{
-  content:"";width:8px;height:8px;border-radius:50%;
-  background:var(--marigold);
-  box-shadow:0 0 0 3px rgba(232,151,31,.22);
-}
-.eyebrow.light{color:var(--marigold)}
-
-h1,h2,h3{font-family:var(--font-display);line-height:1.04;font-weight:700;letter-spacing:-.015em}
-
-/* ============ TOP BAR ============ */
-.topbar{
-  position:sticky;top:0;z-index:50;
-  background:rgba(244,245,241,.92);
-  backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--line);
-}
-.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:66px}
-.brand{font-family:var(--font-display);font-weight:800;font-size:1.16rem;letter-spacing:-.02em;display:flex;align-items:center;gap:.5em}
-.brand .lvl{
-  width:26px;height:14px;border:2px solid var(--pine);border-radius:7px;position:relative;flex:none;
-}
-.brand .lvl::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:8px;height:6px;border-radius:3px;background:var(--marigold)}
+/* buttons */
 .btn{
-  font-family:var(--font-mono);font-weight:600;font-size:.9rem;
-  border:none;border-radius:10px;cursor:pointer;text-decoration:none;
-  display:inline-flex;align-items:center;gap:.5em;
-  padding:.72em 1.1em;transition:transform .12s ease,background .15s ease,box-shadow .15s ease;
+  display:inline-flex;align-items:center;justify-content:center;gap:.5em;
+  font-weight:600;font-size:1rem;text-decoration:none;border-radius:8px;
+  padding:.85em 1.3em;border:2px solid transparent;transition:background .15s,transform .1s;
 }
-.btn-call{background:var(--marigold);color:#241700;box-shadow:0 2px 0 var(--marigold-deep)}
-.btn-call:hover{background:#f0a02a;transform:translateY(-1px)}
-.btn-call:active{transform:translateY(1px);box-shadow:0 1px 0 var(--marigold-deep)}
-.btn-ghost{background:transparent;color:var(--pine);border:1.5px solid var(--pine)}
-.btn-ghost:hover{background:var(--pine);color:#fff}
-.topbar .btn-call{padding:.62em 1em}
+.btn:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.btn-primary{background:var(--orange);color:#fff}
+.btn-primary:hover{background:var(--orange-dark)}
+.btn-secondary{background:transparent;color:var(--navy);border-color:var(--navy)}
+.btn-secondary:hover{background:var(--navy);color:#fff}
+.btn-light{background:#fff;color:var(--navy)}
+.btn-light:hover{background:#eef1f4}
 
-/* ============ HERO ============ */
-.hero{padding:clamp(40px,7vw,76px) 0 clamp(34px,5vw,56px)}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,56px);align-items:center}
-.hero h1{font-size:clamp(2.3rem,5.4vw,4rem);margin:.5rem 0 .2rem}
-.hero h1 .hl{color:var(--pine)}
-.hero .lede{font-size:clamp(1.05rem,2vw,1.2rem);color:var(--muted);max-width:34ch;margin:.6rem 0 1.4rem}
-.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
-.hero-cta .btn{font-size:1rem;padding:.85em 1.25em}
-.areas{margin-top:1.5rem;font-family:var(--font-mono);font-size:.78rem;color:var(--muted);letter-spacing:.02em;line-height:1.9}
-.areas b{color:var(--ink);font-weight:600}
-.trust-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:1.2rem}
-.pill{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.04em;background:#fff;border:1px solid var(--line);border-radius:999px;padding:.4em .85em;color:var(--pine);font-weight:600}
+/* top bar */
+.topbar{position:sticky;top:0;z-index:20;background:rgba(245,243,238,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:64px}
+.brand{font-stretch:85%;font-weight:800;font-size:1.2rem;text-decoration:none;display:flex;align-items:center;gap:.5em}
+.brand .mark{width:14px;height:14px;background:var(--orange);border-radius:3px;transform:rotate(45deg);flex:none}
+.topbar .btn{padding:.6em 1em;font-size:.95rem}
 
-/* hero visual = a before/after teaser card */
-.hero-visual{position:relative}
-.hero-card{
-  background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;
-  box-shadow:0 20px 50px -28px rgba(22,58,44,.5);
-}
-.hero-card .label{display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.1rem;border-bottom:1px solid var(--line)}
-.hero-card .label span{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+/* hero */
+.hero{padding:clamp(48px,8vw,96px) 0 clamp(40px,6vw,72px)}
+.hero h1{font-size:clamp(2.4rem,6vw,4.4rem);max-width:14ch;margin-bottom:1rem}
+.hero .lede{font-size:clamp(1.05rem,1.8vw,1.25rem);color:var(--muted);max-width:44ch;margin-bottom:1.8rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:1.4rem}
+.hero .where{font-size:.95rem;color:var(--muted)}
+.hero .where strong{color:var(--ink);font-weight:600}
 
-/* ============ SECTION SHELL ============ */
-.section{padding:clamp(48px,7vw,86px) 0}
-.section-head{max-width:60ch}
-.section-head h2{font-size:clamp(1.7rem,3.6vw,2.5rem);margin:.7rem 0 .4rem}
-.section-head p{color:var(--muted);font-size:1.05rem}
+/* generic section */
+.section{padding:clamp(48px,7vw,80px) 0}
+.section h2{font-size:clamp(1.7rem,3.5vw,2.4rem);margin-bottom:.5rem}
+.section .intro{color:var(--muted);max-width:52ch;margin-bottom:2rem}
 
-/* ============ SERVICES ============ */
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:2.2rem}
-.svc{
-  background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.4rem;
-  transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease;
-}
-.svc:hover{transform:translateY(-3px);box-shadow:0 16px 34px -24px rgba(22,58,44,.45);border-color:#c4cabe}
-.svc .ic{width:42px;height:42px;border-radius:10px;background:#EEF3EC;display:grid;place-items:center;margin-bottom:.9rem;color:var(--pine)}
-.svc h3{font-size:1.15rem;margin-bottom:.35rem}
+/* services */
+#services{background:var(--white);border-block:1px solid var(--line)}
+.svc-list{display:grid;grid-template-columns:repeat(3,1fr);gap:0 32px;border-top:1px solid var(--line)}
+.svc{padding:1.3rem 0;border-bottom:1px solid var(--line)}
+.svc h3{font-size:1.12rem;margin-bottom:.3rem}
 .svc p{font-size:.95rem;color:var(--muted)}
-.svc .note{display:block;margin-top:.6rem;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.03em;color:var(--marigold-deep)}
+.svc small{display:block;margin-top:.4rem;font-size:.8rem;color:var(--orange-dark)}
 
-/* ============ BEFORE / AFTER ============ */
-#work{background:var(--pine);color:var(--on-pine)}
-#work .eyebrow{color:var(--marigold)}
-#work .section-head h2{color:#fff}
-#work .section-head p{color:#bcd2c4}
-.ba-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:2.4rem}
-.ba-item{background:var(--pine-deep);border:1px solid rgba(255,255,255,.1);border-radius:16px;overflow:hidden}
-.ba-slider{position:relative;aspect-ratio:4/3;overflow:hidden;cursor:ew-resize;user-select:none;touch-action:none;background:#10271d}
-.ba-slider img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
-.ba-after{clip-path:inset(0 0 0 50%)}
-.ba-tag{position:absolute;bottom:10px;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;background:rgba(16,39,29,.82);color:#fff;padding:.3em .6em;border-radius:6px;z-index:3}
-.ba-tag.b{left:10px}.ba-tag.a{right:10px}
-.ba-handle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--marigold);transform:translateX(-50%);z-index:4}
-.ba-handle::after{
-  content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:38px;height:38px;border-radius:50%;background:var(--marigold);
-  box-shadow:0 2px 10px rgba(0,0,0,.35);
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23241700' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='15 18 9 12 15 6'/%3E%3Cpolyline points='9 18 3 12 9 6' transform='translate(12 0)'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-position:center;
+/* how it works */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:step}
+.step{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:1.4rem;position:relative}
+.step::before{
+  counter-increment:step;content:counter(step);
+  display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;
+  background:var(--navy);color:#fff;font-weight:800;font-size:1rem;margin-bottom:.9rem;
 }
-.ba-cap{padding:.95rem 1.15rem;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
-.ba-cap h3{font-size:1.02rem;color:#fff}
-.ba-cap span{font-family:var(--font-mono);font-size:.68rem;color:#9fc0ac;letter-spacing:.04em;white-space:nowrap}
-.ba-empty{grid-column:1/-1;text-align:center;padding:2rem;color:#bcd2c4;font-family:var(--font-mono);font-size:.85rem}
+.step h3{font-size:1.1rem;margin-bottom:.3rem}
+.step p{font-size:.95rem;color:var(--muted)}
 
-/* ============ WHY / TRUST ============ */
-.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:2rem}
-.why{padding:1.3rem 0;border-top:2px solid var(--ink)}
-.why .n{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;color:var(--marigold-deep);font-weight:600}
-.why h3{font-size:1.1rem;margin:.5rem 0 .3rem}
-.why p{font-size:.92rem;color:var(--muted)}
+/* service area */
+#area{background:var(--white);border-block:1px solid var(--line)}
+.area-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.county h3{font-size:1.1rem;margin-bottom:.5rem;color:var(--navy)}
+.towns{display:flex;flex-wrap:wrap;gap:8px;list-style:none}
+.towns li{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:.4em .8em;font-size:.92rem}
+.area-note{margin-top:1.6rem;color:var(--muted);font-size:.95rem;max-width:60ch}
 
-/* ============ AREA ============ */
-.area-wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,56px);align-items:center}
-.area-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:1.4rem}
-.area-list a{
-  font-family:var(--font-mono);font-size:.82rem;font-weight:600;text-decoration:none;
-  background:#fff;border:1px solid var(--line);border-radius:8px;padding:.55em .9em;color:var(--pine);
-  transition:background .15s,color .15s;
+/* contact */
+#contact{background:var(--navy);color:#fff}
+#contact h2{color:#fff}
+#contact .intro{color:#c6d2de}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ccard{
+  display:block;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);
+  border-radius:12px;padding:1.3rem;text-decoration:none;color:#fff;transition:background .15s,border-color .15s;
 }
-.area-list a:hover{background:var(--pine);color:#fff}
+.ccard:hover{background:rgba(255,255,255,.12);border-color:var(--orange)}
+.ccard:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.ccard .k{font-size:.85rem;color:#c6d2de;margin-bottom:.35rem}
+.ccard .v{font-size:1.25rem;font-weight:700;word-break:break-word}
+.ccard .h{font-size:.88rem;color:#c6d2de;margin-top:.6rem}
+.contact-fine{margin-top:1.6rem;font-size:.92rem;color:#c6d2de;max-width:56ch}
 
-/* ============ CONTACT ============ */
-#contact{background:var(--ink);color:#EDEFEA}
-#contact .eyebrow{color:var(--marigold)}
-#contact h2{color:#fff;font-size:clamp(1.8rem,4vw,2.7rem)}
-#contact .sub{color:#aeb6ad;max-width:46ch;margin-top:.6rem}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,52px);margin-top:2.4rem}
-.contact-actions{display:flex;flex-direction:column;gap:14px}
-.cbtn{display:flex;align-items:center;gap:.9rem;background:#222d26;border:1px solid #33413a;border-radius:13px;padding:1.05rem 1.2rem;text-decoration:none;color:#fff;transition:border-color .15s,transform .12s}
-.cbtn:hover{border-color:var(--marigold);transform:translateX(3px)}
-.cbtn .ic{width:40px;height:40px;border-radius:9px;background:var(--marigold);color:#241700;display:grid;place-items:center;flex:none}
-.cbtn b{display:block;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:#9aa39b;font-weight:600}
-.cbtn span{font-size:1.1rem;font-weight:600}
-form.quote{display:grid;gap:12px}
-form.quote label{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:#9aa39b}
-form.quote input,form.quote textarea{
-  width:100%;background:#222d26;border:1px solid #33413a;border-radius:10px;
-  padding:.8rem .9rem;color:#fff;font-family:var(--font-body);font-size:1rem;
-}
-form.quote input:focus,form.quote textarea:focus{outline:2px solid var(--marigold);border-color:transparent}
-form.quote textarea{min-height:110px;resize:vertical}
-form.quote .btn-call{justify-content:center;font-size:1rem;padding:.95em}
-.form-note{font-size:.78rem;color:#8e978f}
+/* footer */
+footer{background:var(--ink);color:#9aa5b1;padding:2rem 0;font-size:.88rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+footer a{color:#fff;text-decoration:none}
+footer a:hover{text-decoration:underline}
 
-/* ============ FOOTER ============ */
-footer{background:var(--pine-deep);color:#bcd2c4;padding:2.6rem 0;font-size:.86rem}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
-footer a{color:var(--marigold);text-decoration:none}
-footer .fine{font-family:var(--font-mono);font-size:.72rem;color:#7fa08c}
+/* mobile sticky call bar */
+.mobile-bar{display:none}
 
-/* ============ REVEAL ANIM ============ */
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
-.reveal.in{opacity:1;transform:none}
-
-/* ============ RESPONSIVE ============ */
-@media(max-width:880px){
-  .hero-grid{grid-template-columns:1fr}
-  .hero-visual{order:-1}
-  .svc-grid{grid-template-columns:1fr 1fr}
-  .why-grid{grid-template-columns:1fr 1fr}
-  .area-wrap{grid-template-columns:1fr}
-  .ba-grid{grid-template-columns:1fr}
+@media(max-width:860px){
+  .svc-list{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr}
   .contact-grid{grid-template-columns:1fr}
 }
-@media(max-width:560px){
-  .svc-grid{grid-template-columns:1fr}
-  .why-grid{grid-template-columns:1fr 1fr}
-  .topbar .brand span.txt{display:none}
+@media(max-width:600px){
+  .svc-list{grid-template-columns:1fr}
+  .area-grid{grid-template-columns:1fr}
+  .topbar .brand .txt{display:none}
+  body{padding-bottom:72px}
+  .mobile-bar{
+    display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:30;
+    padding:10px var(--pad);background:rgba(23,34,44,.96);border-top:1px solid rgba(255,255,255,.12);
+  }
+  .mobile-bar .btn{padding:.8em}
 }
-@media(prefers-reduced-motion:reduce){
-  *{scroll-behavior:auto}
-  .reveal{opacity:1;transform:none;transition:none}
-}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 
-<!-- ===== TOP BAR ===== -->
 <header class="topbar">
   <div class="wrap">
-    <div class="brand"><span class="lvl"></span><span class="txt">Seminole Home Repair</span></div>
-    <a class="btn btn-call" href="tel:4075550188">📞 (407) 555-0188</a>
+    <a class="brand" href="#top"><span class="mark"></span><span class="txt">TradeSite Pro Handyman</span></a>
+    <a class="btn btn-primary" href="tel:4075190553">Call 407-519-0553</a>
   </div>
 </header>
 
-<!-- ===== HERO ===== -->
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <span class="eyebrow">Seminole County, FL · Licensed &amp; Insured</span>
-      <h1>The <span class="hl">small jobs</span> nobody else will call you back for.</h1>
-      <p class="lede">Lights, drywall, sticking doors, cabinets, popping floors — done right, and done this week.</p>
-      <div class="hero-cta">
-        <a class="btn btn-call" href="tel:4075550188">📞 Call for a free quote</a>
-        <a class="btn btn-ghost" href="sms:4075550188">💬 Text a photo</a>
-      </div>
-      <div class="trust-pills">
-        <span class="pill">Free quotes</span>
-        <span class="pill">On-time, every time</span>
-        <span class="pill">Small-job specialist</span>
-        <span class="pill">Tidy work, no mess left</span>
-      </div>
-      <p class="areas"><b>Serving:</b> Sanford · Lake Mary · Longwood · Oviedo · Winter Springs · Casselberry · Altamonte Springs</p>
+<section class="hero" id="top">
+  <div class="wrap">
+    <h1>The small jobs around the house, done right.</h1>
+    <p class="lede">Drywall, doors, light fixtures, cabinets, floors and the rest of the to-do list. Free quotes, clear pricing, and a real answer on when I can be there.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="tel:4075190553">Call for a free quote</a>
+      <a class="btn btn-secondary" href="sms:4075190553?&body=Hi%20Mark%2C%20I%20need%20help%20with%3A%20">Text a photo of the job</a>
     </div>
-
-    <div class="hero-visual">
-      <div class="hero-card">
-        <div class="label"><span>Before / after</span><span>Drag to reveal →</span></div>
-        <div class="ba-slider" data-ba>
-          <img class="ba-before" alt="Before repair" src="images/gallery/before-01.jpg" />
-          <img class="ba-after" alt="After repair" src="images/gallery/after-01.jpg" />
-          <span class="ba-tag b">Before</span>
-          <span class="ba-tag a">After</span>
-          <div class="ba-handle"></div>
-        </div>
-      </div>
-    </div>
+    <p class="where"><strong>Serving Seminole County and Orange County</strong> — Lake Mary, Sanford, Longwood, Oviedo, Winter Park, Orlando and nearby.</p>
   </div>
 </section>
 
-<div class="tick-rule"></div>
-
-<!-- ===== SERVICES ===== -->
 <section class="section" id="services">
   <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">What I do</span>
-      <h2>Honest fixes for the to-do list that never ends.</h2>
-      <p>No job too small. If it's annoying you every day, it's worth a call.</p>
-    </div>
-    <div class="svc-grid">
-      <div class="svc reveal">
-        <div class="ic">💡</div>
-        <h3>Light &amp; fixture swaps</h3>
-        <p>New light fixtures, ceiling fans, switches and outlets swapped on existing wiring — bright, level, and safe.</p>
-        <span class="note">Fixture replacement only — no panel or new-circuit work</span>
-      </div>
-      <div class="svc reveal">
-        <div class="ic">🔧</div>
-        <h3>Drywall &amp; small repairs</h3>
-        <p>Holes, dings, cracks and anchor damage patched, sanded and textured so you can't tell it was ever there.</p>
-      </div>
-      <div class="svc reveal">
-        <div class="ic">🚪</div>
-        <h3>Doors that won't close</h3>
-        <p>Sticking, dragging or misaligned doors re-hung and adjusted. Hinges, strikes, and latches that actually catch.</p>
-      </div>
-      <div class="svc reveal">
-        <div class="ic">🗄️</div>
-        <h3>Cabinet refinishing</h3>
-        <p>Tired kitchen and bath cabinets sanded, sealed and refinished — a fresh look without a full remodel.</p>
-      </div>
-      <div class="svc reveal">
-        <div class="ic">🟫</div>
-        <h3>Vinyl floor fixes</h3>
-        <p>Planks that pop, lift or peel re-seated and secured so your floor lies flat and stays put.</p>
-      </div>
-      <div class="svc reveal">
-        <div class="ic">✅</div>
-        <h3>Your odd-job list</h3>
-        <p>Mounting, caulking, weatherstripping, hardware, small assembly — hand me the list and I'll knock it out.</p>
-      </div>
+    <h2>What I can help with</h2>
+    <p class="intro">No job too small. If it's been annoying you every day, it's worth a call.</p>
+    <div class="svc-list">
+      <div class="svc"><h3>Drywall repair</h3><p>Holes, cracks, dings and anchor damage patched, sanded and textured to match.</p></div>
+      <div class="svc"><h3>Doors that won't close</h3><p>Sticking, dragging or misaligned doors re-hung and adjusted. Hinges, strikes and latches replaced.</p></div>
+      <div class="svc"><h3>Light fixtures &amp; fans</h3><p>New fixtures, ceiling fans, switches and outlets swapped on existing wiring.</p><small>Replacement only — no panel or new-circuit work</small></div>
+      <div class="svc"><h3>Cabinets &amp; hardware</h3><p>Cabinet refinishing, door and drawer adjustments, new pulls and hinges.</p></div>
+      <div class="svc"><h3>Floor fixes</h3><p>Vinyl and laminate planks that pop, lift or peel re-seated and secured.</p></div>
+      <div class="svc"><h3>Mounting &amp; assembly</h3><p>TVs, shelves, curtain rods, mirrors, furniture assembly.</p></div>
+      <div class="svc"><h3>Caulk &amp; seal</h3><p>Tubs, showers, sinks, windows and baseboards recaulked and weatherstripped.</p></div>
+      <div class="svc"><h3>Small plumbing swaps</h3><p>Faucets, shower heads, toilet parts and garbage disposals replaced.</p></div>
+      <div class="svc"><h3>Your odd-job list</h3><p>Send the whole list. I'll quote it as one visit and knock it out.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ===== BEFORE / AFTER GALLERY ===== -->
-<section class="section" id="work">
+<section class="section" id="how">
   <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow light">The proof</span>
-      <h2>Before &amp; after</h2>
-      <p>Real jobs around Seminole County. Drag the slider to see the difference.</p>
+    <h2>How booking works</h2>
+    <p class="intro">Three steps, no forms to fill out.</p>
+    <div class="steps">
+      <div class="step"><h3>Reach out</h3><p>Call, text or email. A quick photo of the problem helps me quote it fast.</p></div>
+      <div class="step"><h3>Get a quote</h3><p>You'll get a clear price and a real timeframe before any work starts. No surprise add-ons.</p></div>
+      <div class="step"><h3>Job done</h3><p>I show up when I said I would, do the work, and the mess leaves with me.</p></div>
     </div>
-    <div class="ba-grid" id="gallery"><!-- filled by script --></div>
   </div>
 </section>
 
-<div class="tick-rule"></div>
-
-<!-- ===== WHY ME ===== -->
-<section class="section" id="why">
+<section class="section" id="area">
   <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Why homeowners call me back</span>
-      <h2>Reliable beats fancy.</h2>
+    <h2>Where I work</h2>
+    <p class="intro">Based in Seminole County and covering Orange County across Central Florida.</p>
+    <div class="area-grid">
+      <div class="county">
+        <h3>Seminole County</h3>
+        <ul class="towns">
+          <li>Lake Mary</li><li>Sanford</li><li>Heathrow</li><li>Longwood</li><li>Altamonte Springs</li>
+          <li>Casselberry</li><li>Winter Springs</li><li>Oviedo</li><li>Geneva</li>
+        </ul>
+      </div>
+      <div class="county">
+        <h3>Orange County</h3>
+        <ul class="towns">
+          <li>Orlando</li><li>Winter Park</li><li>Maitland</li><li>Apopka</li><li>Ocoee</li>
+          <li>Winter Garden</li><li>Windermere</li><li>Dr. Phillips</li><li>Lake Nona</li>
+        </ul>
+      </div>
     </div>
-    <div class="why-grid">
-      <div class="why reveal"><div class="n">01</div><h3>I show up</h3><p>You get a real answer on timing — and I'm there when I said I would be.</p></div>
-      <div class="why reveal"><div class="n">02</div><h3>Clear quotes</h3><p>Up-front pricing before I start. No surprise add-ons at the end.</p></div>
-      <div class="why reveal"><div class="n">03</div><h3>Clean work</h3><p>I treat your home like mine. The mess leaves with me.</p></div>
-      <div class="why reveal"><div class="n">04</div><h3>Licensed &amp; insured</h3><p>A registered Florida LLC carrying liability coverage on every job.</p></div>
-    </div>
+    <p class="area-note">Not sure if you're in range? Text me your address and I'll let you know.</p>
   </div>
 </section>
 
-<!-- ===== SERVICE AREA ===== -->
-<section class="section" id="area" style="background:#fff;border-block:1px solid var(--line)">
-  <div class="wrap area-wrap">
-    <div class="reveal">
-      <span class="eyebrow">Where I work</span>
-      <h2 style="font-size:clamp(1.7rem,3.6vw,2.4rem);margin:.6rem 0 .5rem">Proudly local to Seminole County, Florida</h2>
-      <p style="color:var(--muted)">Based in Sanford and covering the surrounding towns. Not sure if you're in range? Call and ask — I probably drive past you.</p>
-      <div class="area-list">
-        <a href="tel:4075550188">Sanford</a>
-        <a href="tel:4075550188">Lake Mary</a>
-        <a href="tel:4075550188">Longwood</a>
-        <a href="tel:4075550188">Oviedo</a>
-        <a href="tel:4075550188">Winter Springs</a>
-        <a href="tel:4075550188">Casselberry</a>
-        <a href="tel:4075550188">Altamonte Springs</a>
-        <a href="tel:4075550188">Heathrow</a>
-        <a href="tel:4075550188">Geneva</a>
-      </div>
-    </div>
-    <div class="reveal">
-      <div class="hero-card">
-        <div class="label"><span>Reviews</span><a href="YOUR_GOOGLE_REVIEW_LINK" style="font-family:var(--font-mono);font-size:.72rem;color:var(--pine);text-decoration:none;font-weight:600">★★★★★ on Google →</a></div>
-        <div style="padding:1.4rem 1.3rem;color:var(--muted)">
-          <p style="font-style:italic;color:var(--ink)">“Replace this with a real review once you have a few — short quotes from happy customers build more trust than anything else on the page.”</p>
-          <p style="font-family:var(--font-mono);font-size:.74rem;margin-top:.8rem;color:var(--pine)">— Customer name, Lake Mary</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== CONTACT ===== -->
 <section class="section" id="contact">
   <div class="wrap">
-    <div class="reveal">
-      <span class="eyebrow">Get a free quote</span>
-      <h2>Tell me what's bugging you. I'll handle it.</h2>
-      <p class="sub">Call or text is fastest — send a photo and I can usually quote it on the spot.</p>
-    </div>
+    <h2>Book a job</h2>
+    <p class="intro">Call or text is fastest. Email works great for longer lists or if you'd like a written quote.</p>
     <div class="contact-grid">
-      <div class="contact-actions reveal">
-        <a class="cbtn" href="tel:4075550188"><span class="ic">📞</span><span><b>Call</b><span>(407) 555-0188</span></span></a>
-        <a class="cbtn" href="sms:4075550188"><span class="ic">💬</span><span><b>Text a photo</b><span>(407) 555-0188</span></span></a>
-        <a class="cbtn" href="mailto:hello@seminolehomerepair.com"><span class="ic">✉️</span><span><b>Email</b><span>hello@seminolehomerepair.com</span></span></a>
-      </div>
-      <form class="quote reveal" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
-        <div>
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" required placeholder="Your name" />
-        </div>
-        <div>
-          <label for="phone">Phone</label>
-          <input id="phone" name="phone" type="tel" required placeholder="(407) 555-0000" />
-        </div>
-        <div>
-          <label for="job">What needs fixing?</label>
-          <textarea id="job" name="message" required placeholder="e.g. two light fixtures + a door that won't latch, in Lake Mary"></textarea>
-        </div>
-        <button class="btn btn-call" type="submit">Send my quote request</button>
-        <p class="form-note">Until you connect Formspree (see README), the buttons on the left work right away.</p>
-      </form>
+      <a class="ccard" href="tel:4075190553">
+        <div class="k">Call</div>
+        <div class="v">407-519-0553</div>
+        <div class="h">Leave a voicemail if I'm on a job — I'll call back.</div>
+      </a>
+      <a class="ccard" href="sms:4075190553?&body=Hi%20Mark%2C%20I%20need%20help%20with%3A%20">
+        <div class="k">Text</div>
+        <div class="v">407-519-0553</div>
+        <div class="h">Send a photo and your city for the quickest quote.</div>
+      </a>
+      <a class="ccard" href="mailto:mark@tradesiteprofl.com?subject=Handyman%20job%20request&body=Hi%20Mark%2C%0A%0AWhat%20I%20need%20done%3A%0A%0ACity%20%2F%20neighborhood%3A%0A%0ABest%20number%20to%20reach%20me%3A%0A">
+        <div class="k">Email</div>
+        <div class="v">mark@tradesiteprofl.com</div>
+        <div class="h">Opens a pre-filled message — just add the details.</div>
+      </a>
     </div>
+    <p class="contact-fine">Serving Seminole County and Orange County, Central Florida. Free quotes on every job.</p>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div>
-      <strong style="color:#fff;font-family:var(--font-display)">Seminole Home Repair</strong><br/>
-      <span class="fine">Handyman services · Seminole County, FL · Licensed &amp; insured</span>
-    </div>
-    <div class="fine">
-      <a href="tel:4075550188">(407) 555-0188</a> · <a href="mailto:hello@seminolehomerepair.com">hello@seminolehomerepair.com</a><br/>
-      © <span id="yr"></span> Seminole Home Repair LLC
-    </div>
+    <div><strong style="color:#fff">TradeSite Pro Handyman</strong><br/>Seminole &amp; Orange County, FL</div>
+    <div><a href="tel:4075190553">407-519-0553</a> · <a href="mailto:mark@tradesiteprofl.com">mark@tradesiteprofl.com</a><br/>© <span id="yr"></span> TradeSite Pro</div>
   </div>
 </footer>
 
-<!-- ===== LOCAL BUSINESS SCHEMA (helps Google show you in local results) ===== -->
+<div class="mobile-bar">
+  <a class="btn btn-primary" href="tel:4075190553">Call</a>
+  <a class="btn btn-light" href="sms:4075190553?&body=Hi%20Mark%2C%20I%20need%20help%20with%3A%20">Text</a>
+</div>
+
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
   "@type":"HomeAndConstructionBusiness",
-  "name":"Seminole Home Repair",
-  "image":"https://www.seminolehomerepair.com/images/gallery/after-01.jpg",
-  "telephone":"+1-407-555-0188",
-  "email":"hello@seminolehomerepair.com",
-  "url":"https://www.seminolehomerepair.com/",
+  "name":"TradeSite Pro Handyman",
+  "telephone":"+1-407-519-0553",
+  "email":"mark@tradesiteprofl.com",
+  "url":"https://www.tradesiteprofl.com/",
   "priceRange":"$$",
-  "address":{"@type":"PostalAddress","addressLocality":"Sanford","addressRegion":"FL","addressCountry":"US"},
+  "address":{"@type":"PostalAddress","addressRegion":"FL","addressCountry":"US"},
   "areaServed":[
-    {"@type":"City","name":"Sanford"},{"@type":"City","name":"Lake Mary"},
-    {"@type":"City","name":"Longwood"},{"@type":"City","name":"Oviedo"},
-    {"@type":"City","name":"Winter Springs"},{"@type":"City","name":"Casselberry"},
-    {"@type":"City","name":"Altamonte Springs"}
+    {"@type":"AdministrativeArea","name":"Seminole County, FL"},
+    {"@type":"AdministrativeArea","name":"Orange County, FL"}
   ],
-  "knowsAbout":["light fixture replacement","drywall repair","door adjustment","cabinet refinishing","vinyl floor repair","handyman services"],
-  "hasOfferCatalog":{
-    "@type":"OfferCatalog","name":"Handyman services",
-    "itemListElement":[
-      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Light & fixture replacement"}},
-      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Drywall & small repairs"}},
-      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Door adjustment & repair"}},
-      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Cabinet refinishing"}},
-      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Vinyl floor repair"}}
-    ]
-  }
+  "knowsAbout":["handyman services","drywall repair","door repair","light fixture replacement","cabinet refinishing","floor repair","furniture assembly"]
 }
 </script>
-
-<script>
-/* ============================================================
-   GALLERY — add a before/after by dropping two photos into
-   images/gallery/ and adding ONE block here.
-   Recommended size: 1200x900 (4:3), JPG, under ~400KB each.
-   ============================================================ */
-const galleryItems = [
-  {
-    title:"Kitchen light fixture swap",
-    location:"Lake Mary",
-    before:"images/gallery/before-01.jpg",
-    after:"images/gallery/after-01.jpg"
-  },
-  {
-    title:"Drywall hole patched & textured",
-    location:"Sanford",
-    before:"images/gallery/before-02.jpg",
-    after:"images/gallery/after-02.jpg"
-  },
-  {
-    title:"Cabinet refinish",
-    location:"Oviedo",
-    before:"images/gallery/before-03.jpg",
-    after:"images/gallery/after-03.jpg"
-  },
-  {
-    title:"Vinyl plank re-seated",
-    location:"Winter Springs",
-    before:"images/gallery/before-04.jpg",
-    after:"images/gallery/after-04.jpg"
-  }
-  /* ,{ title:"New job", location:"City", before:"images/gallery/before-05.jpg", after:"images/gallery/after-05.jpg" } */
-];
-
-/* placeholder shown if a photo file isn't there yet (and in preview) */
-function placeholder(text,kind){
-  const bg = kind==="after" ? "1F4D3A" : "8a8f86";
-  const fg = kind==="after" ? "EAF1EC" : "ffffff";
-  return "data:image/svg+xml,"+encodeURIComponent(
-    `<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'><rect width='800' height='600' fill='#${bg}'/><text x='50%' y='46%' fill='#${fg}' font-family='monospace' font-size='30' text-anchor='middle'>${kind.toUpperCase()}</text><text x='50%' y='56%' fill='#${fg}' opacity='.75' font-family='monospace' font-size='20' text-anchor='middle'>${text}</text></svg>`
-  );
-}
-
-const gallery = document.getElementById('gallery');
-if(!galleryItems.length){
-  gallery.innerHTML = '<p class="ba-empty">Add your first before/after in images/gallery/ — see README.</p>';
-}else{
-  galleryItems.forEach(item=>{
-    const el = document.createElement('div');
-    el.className='ba-item reveal';
-    el.innerHTML = `
-      <div class="ba-slider" data-ba>
-        <img class="ba-before" alt="Before — ${item.title}" src="${item.before}"
-             onerror="this.onerror=null;this.src=placeholder('drop a photo','before')"/>
-        <img class="ba-after" alt="After — ${item.title}" src="${item.after}"
-             onerror="this.onerror=null;this.src=placeholder('drop a photo','after')"/>
-        <span class="ba-tag b">Before</span>
-        <span class="ba-tag a">After</span>
-        <div class="ba-handle"></div>
-      </div>
-      <div class="ba-cap"><h3>${item.title}</h3><span>${item.location}</span></div>`;
-    gallery.appendChild(el);
-  });
-}
-
-/* ---- before/after drag logic (mouse, touch, keyboard) ---- */
-function initBA(slider){
-  const after = slider.querySelector('.ba-after');
-  const handle = slider.querySelector('.ba-handle');
-  let dragging=false;
-  const set=p=>{
-    p=Math.max(0,Math.min(100,p));
-    after.style.clipPath=`inset(0 0 0 ${p}%)`;
-    handle.style.left=p+'%';
-  };
-  const fromEvent=e=>{
-    const r=slider.getBoundingClientRect();
-    const x=(e.touches?e.touches[0].clientX:e.clientX)-r.left;
-    set((x/r.width)*100);
-  };
-  slider.addEventListener('mousedown',e=>{dragging=true;fromEvent(e)});
-  window.addEventListener('mousemove',e=>{if(dragging)fromEvent(e)});
-  window.addEventListener('mouseup',()=>dragging=false);
-  slider.addEventListener('touchstart',e=>{dragging=true;fromEvent(e)},{passive:true});
-  slider.addEventListener('touchmove',e=>{if(dragging)fromEvent(e)},{passive:true});
-  slider.addEventListener('touchend',()=>dragging=false);
-  // keyboard
-  slider.tabIndex=0; slider.setAttribute('role','slider'); slider.setAttribute('aria-label','Before and after comparison');
-  let pos=50;
-  slider.addEventListener('keydown',e=>{
-    if(e.key==='ArrowLeft'){pos-=5;set(pos);e.preventDefault();}
-    if(e.key==='ArrowRight'){pos+=5;set(pos);e.preventDefault();}
-  });
-}
-document.querySelectorAll('[data-ba]').forEach(initBA);
-
-/* ---- scroll reveal ---- */
-const io=new IntersectionObserver(es=>{
-  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
-},{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-document.getElementById('yr').textContent=new Date().getFullYear();
-</script>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
 </body>
 </html>
